@@ -1,0 +1,7 @@
+System.Data.Common
+
+SqlStreamStore.MsSql
+Autofac
+
+SourceLink.Embed.AllSourceFiles
+SourceLink.Copy.PdbFiles

@@ -1,0 +1,27 @@
+type file
+version 1.0.0
+
+id Be.Vlaanderen.Basisregisters.DataDog.Tracing
+title Be.Vlaanderen.Basisregisters.DataDog.Tracing
+
+authors Basisregisters Vlaanderen
+owners agentschap Informatie Vlaanderen <https://vlaanderen.be/informatie-vlaanderen>
+copyright Copyright (c) agentschap Informatie Vlaanderen
+requireLicenseAcceptance false
+projectUrl https://github.com/Informatievlaanderen/datadog-tracing
+iconUrl https://raw.githubusercontent.com/Informatievlaanderen/build-pipeline/master/logo.png
+licenseUrl https://opensource.org/licenses/MIT
+
+description A C# Implementation of Data Dog Tracing.
+
+dependencies
+  framework: netstandard20
+    Newtonsoft.Json >= LOCKEDVERSION
+    Microsoft.Extensions.Logging.Abstractions >= LOCKEDVERSION
+    System.Reactive >= LOCKEDVERSION
+    System.Reflection >= LOCKEDVERSION
+    System.Threading.Tasks.Dataflow >= LOCKEDVERSION
+
+files
+  bin\Release\netstandard2.0\Be.Vlaanderen.Basisregisters.DataDog.Tracing.dll => lib\netstandard2.0
+  bin\Release\netstandard2.0\Be.Vlaanderen.Basisregisters.DataDog.Tracing.pdb => lib\netstandard2.0

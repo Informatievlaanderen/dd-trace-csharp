@@ -1,0 +1,10 @@
+Newtonsoft.Json
+
+Microsoft.Extensions.Logging.Abstractions
+
+System.Reactive
+System.Reflection
+System.Threading.Tasks.Dataflow
+
+SourceLink.Embed.AllSourceFiles
+SourceLink.Copy.PdbFiles

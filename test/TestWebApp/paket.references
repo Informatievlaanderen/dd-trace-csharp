@@ -1,0 +1,7 @@
+Microsoft.AspNetCore
+Microsoft.AspNetCore.Mvc.Core
+
+Newtonsoft.Json
+
+SourceLink.Embed.AllSourceFiles
+SourceLink.Copy.PdbFiles
