@@ -23,5 +23,5 @@ dependencies
     FeatureToggle >= LOCKEDVERSION
 
 files
-  bin\Release\netcoreapp2.1\Be.Vlaanderen.Basisregisters.DataDog.Tracing.Autofac.dll => lib\netcoreapp2.1
-  bin\Release\netcoreapp2.1\Be.Vlaanderen.Basisregisters.DataDog.Tracing.Autofac.pdb => lib\netcoreapp2.1
+  bin\Release\netcoreapp2.2\Be.Vlaanderen.Basisregisters.DataDog.Tracing.Autofac.dll => lib\netcoreapp2.2
+  bin\Release\netcoreapp2.2\Be.Vlaanderen.Basisregisters.DataDog.Tracing.Autofac.pdb => lib\netcoreapp2.2
