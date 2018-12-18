@@ -37,7 +37,7 @@ nuget Autofac 4.8.1
 nuget FeatureToggle 4.0.2
 
 // VBR STUFF
-nuget Be.Vlaanderen.Basisregisters.Build.Pipeline ~> 1.0
+nuget Be.Vlaanderen.Basisregisters.Build.Pipeline ~> 1.1
 
 // TEST STUFF
 nuget Microsoft.NET.Test.Sdk 15.9.0

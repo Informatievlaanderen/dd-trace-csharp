@@ -1,6 +1,7 @@
+Microsoft.NETCore.App
+
 nunit
 NUnit3TestAdapter
 Microsoft.NET.Test.Sdk
 FluentAssertions
-
 dotnet-sourcelink

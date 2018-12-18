@@ -1,9 +1,10 @@
-NUnit
-NUnit3TestAdapter
-Microsoft.NET.Test.Sdk
-FluentAssertions
+Microsoft.NETCore.App
 
 Microsoft.Data.Sqlite.Core
 sqlite-net-pcl
 
+NUnit
+NUnit3TestAdapter
+Microsoft.NET.Test.Sdk
+FluentAssertions
 dotnet-sourcelink

@@ -7,6 +7,7 @@ NUGET
     Autofac.Extensions.DependencyInjection (4.3.1)
       Autofac (>= 4.6.1)
       Microsoft.Extensions.DependencyInjection.Abstractions (>= 1.1)
+    Be.Vlaanderen.Basisregisters.Build.Pipeline (1.1.2)
     Castle.Core (4.3.1)
       NETStandard.Library (>= 1.6.1) - restriction: || (&& (== net472) (< net35)) (== netcoreapp2.2) (== netstandard2.0)
       System.Collections.Specialized (>= 4.3) - restriction: || (&& (== net472) (< net35)) (== netcoreapp2.2) (== netstandard2.0)
@@ -907,5 +908,3 @@ NUGET
     xunit.extensibility.execution (2.4.1)
       NETStandard.Library (>= 1.6.1) - restriction: || (&& (== net472) (< net452)) (== netcoreapp2.2) (== netstandard2.0)
       xunit.extensibility.core (2.4.1)
-  remote: https://informatievlaanderen.myget.org/F/basisregisters/api/v3/index.json
-    Be.Vlaanderen.Basisregisters.Build.Pipeline (1.0.0)
