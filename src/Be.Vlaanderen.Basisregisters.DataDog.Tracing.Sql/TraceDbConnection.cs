@@ -1,4 +1,4 @@
-﻿namespace Be.Vlaanderen.Basisregisters.DataDog.Tracing.Sql
+namespace Be.Vlaanderen.Basisregisters.DataDog.Tracing.Sql
 {
     using System;
     using System.Data;
@@ -6,23 +6,46 @@
 
     public class TraceDbConnection : IDbConnection
     {
-        const string ServiceName = "sql";
+        private const string DefaultServiceName = "sql";
+        private const string TypeName = "sql";
 
-        readonly ISpanSource _spanSource;
-        readonly IDbConnection _connection;
+        private string ServiceName { get; }
 
-        public TraceDbConnection(IDbConnection connection)
-            : this(connection, TraceContextSpanSource.Instance)
+        private readonly ISpanSource _spanSource;
+        private readonly IDbConnection _connection;
+
+        public IDbConnection InnerConnection => _connection;
+
+        public int ConnectionTimeout => _connection.ConnectionTimeout;
+
+        public string Database => _connection.Database;
+
+        public ConnectionState State => _connection.State;
+
+        public string ConnectionString
         {
+            get => _connection.ConnectionString;
+            set => _connection.ConnectionString = value;
         }
 
+        public TraceDbConnection(IDbConnection connection)
+            : this(connection, TraceContextSpanSource.Instance) { }
+
+        public TraceDbConnection(IDbConnection connection, string serviceName)
+            : this(connection, serviceName, TraceContextSpanSource.Instance) { }
+
         public TraceDbConnection(IDbConnection connection, ISpanSource spanSource)
+            : this(connection, DefaultServiceName, spanSource) { }
+
+        public TraceDbConnection(IDbConnection connection, string serviceName, ISpanSource spanSource)
         {
             _connection = connection ?? throw new ArgumentNullException(nameof(connection));
             _spanSource = spanSource ?? throw new ArgumentNullException(nameof(spanSource));
-        }
 
-        public IDbConnection InnerConnection => _connection;
+            ServiceName = string.IsNullOrWhiteSpace(serviceName)
+                ? DefaultServiceName
+                : serviceName;
+        }
 
         public void Dispose() => _connection.Dispose();
 
@@ -35,11 +58,11 @@
 
         public void Close() => _connection.Close();
 
-        public IDbCommand CreateCommand() => new TraceDbCommand(_connection.CreateCommand(), _spanSource);
+        public IDbCommand CreateCommand() => new TraceDbCommand(_connection.CreateCommand(), ServiceName, _spanSource);
 
         public void Open()
         {
-            var span = _spanSource.Begin("sql.connect", ServiceName, _connection.Database, ServiceName);
+            var span = _spanSource.Begin("sql.connect", ServiceName, _connection.Database, TypeName);
             try
             {
                 _connection.Open();
@@ -54,17 +77,5 @@
                 span?.Dispose();
             }
         }
-
-        public string ConnectionString
-        {
-            get => _connection.ConnectionString;
-            set => _connection.ConnectionString = value;
-        }
-
-        public int ConnectionTimeout => _connection.ConnectionTimeout;
-
-        public string Database => _connection.Database;
-
-        public ConnectionState State => _connection.State;
     }
 }
