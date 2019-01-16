@@ -1,4 +1,4 @@
-﻿namespace Be.Vlaanderen.Basisregisters.DataDog.Tracing.Sql.EntityFrameworkCore
+namespace Be.Vlaanderen.Basisregisters.DataDog.Tracing.Sql.EntityFrameworkCore
 {
     using System;
     using System.Data;
@@ -58,7 +58,7 @@
         protected override DbCommand CreateDbCommand()
             => new TraceDbCommand(_connection.CreateCommand(), ServiceName, _spanSource);
 
-        public new void Dispose()
+        protected override void Dispose(bool disposing)
             => _connection.Dispose();
 
         public override void ChangeDatabase(string databaseName)
