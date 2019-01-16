@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/informatievlaanderen/datadog-tracing/compare/v1.1.0...v1.1.1) (2019-01-16)
+
+
+### Bug Fixes
+
+* properly dispose TraceDbConnection ([e1736f8](https://github.com/informatievlaanderen/datadog-tracing/commit/e1736f8))
+
 # [1.1.0](https://github.com/informatievlaanderen/datadog-tracing/compare/v1.0.1...v1.1.0) (2019-01-15)
 
 
