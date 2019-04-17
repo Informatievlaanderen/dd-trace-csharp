@@ -1,12 +1,7 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26730.16
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.156
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".paket", ".paket", "{122C73C5-533E-4137-91A2-D31F4F108D2C}"
-	ProjectSection(SolutionItems) = preProject
-		paket.dependencies = paket.dependencies
-	EndProjectSection
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Be.Vlaanderen.Basisregisters.DataDog.Tracing", "src\Be.Vlaanderen.Basisregisters.DataDog.Tracing\Be.Vlaanderen.Basisregisters.DataDog.Tracing.csproj", "{D07AFDBB-DEB1-4C28-B5B5-2A3B3ECDF022}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{142C95EE-74A8-4D21-BCCD-4278EEE422A2}"
@@ -28,6 +23,19 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Be.Vlaanderen.Basisregisters.DataDog.Tracing.SqlStreamStore", "src\Be.Vlaanderen.Basisregisters.DataDog.Tracing.SqlStreamStore\Be.Vlaanderen.Basisregisters.DataDog.Tracing.SqlStreamStore.csproj", "{C1046614-A020-4FFD-9291-C1D89F122DE6}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Be.Vlaanderen.Basisregisters.DataDog.Tracing.Autofac", "src\Be.Vlaanderen.Basisregisters.DataDog.Tracing.Autofac\Be.Vlaanderen.Basisregisters.DataDog.Tracing.Autofac.csproj", "{8531D9B9-6629-4BC6-A6E6-72851DD4C64F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{68EBB22B-501A-4847-8159-A5786A0CB06B}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		build.fsx = build.fsx
+		global.json = global.json
+		package.json = package.json
+		paket.dependencies = paket.dependencies
+		README.md = README.md
+		SEMVER.md = SEMVER.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

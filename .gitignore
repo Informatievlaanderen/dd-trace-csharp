@@ -1,4 +1,8 @@
+appsettings.*.json
+wwwroot/
+
 .vs/
+.vscode/
 .fake/
 .idea/
 
@@ -6,18 +10,18 @@
 [Pp]aket-files/
 [Dd]ebug/
 [Rr]elease/
-[Bb]build/
+[Bb]uild/
 [Bb]in/
 [Oo]bj/
 [Xx]64/
 [Dd]ist/
+[Tt]est[Rr]esults/
 
 *.suo
 *.user
 *.sln.docstates
 *.ntvs*
 *.njsproj
-*.trx
 
 node_modules/
 bower_components/
@@ -34,3 +38,5 @@ TestResults.xml
 ehthumbs.db
 Icon?
 Thumbs.db
+
+structurizr-*.json
