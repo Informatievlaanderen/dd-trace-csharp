@@ -1,4 +1,4 @@
-﻿namespace Be.Vlaanderen.Basisregisters.DataDog.Tracing.Tests.Http
+namespace Be.Vlaanderen.Basisregisters.DataDog.Tracing.Tests.Http
 {
     using System;
     using System.Net.Http;
@@ -20,7 +20,7 @@
         [SetUp]
         public void SetUp()
         {
-            _traceSource = new TraceSource();
+            _traceSource = new TraceSource("some_trace_id");
             _traceSource.Subscribe(t => _lastTrace = t);
             _innerHandler = new HttpClientHandler();
             _traceHandler = new TraceHttpMessageHandler(_innerHandler, _traceSource);

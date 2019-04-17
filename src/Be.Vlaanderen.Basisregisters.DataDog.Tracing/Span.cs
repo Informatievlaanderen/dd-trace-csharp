@@ -11,7 +11,7 @@ namespace Be.Vlaanderen.Basisregisters.DataDog.Tracing
         protected internal bool Sealed;
 
         [JsonProperty("trace_id")]
-        public long TraceId { get; set; }
+        public string TraceId { get; set; }
         [JsonProperty("span_id")]
         public long SpanId { get; set; }
         [JsonProperty("name")]

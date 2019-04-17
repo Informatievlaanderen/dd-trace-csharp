@@ -30,11 +30,11 @@ namespace TestWebApp
             if (env.IsDevelopment())
                 app.UseDeveloperExceptionPage();
 
-            var source = new TraceSource();
+            var source = new TraceSource("some_trace_id");
             SetupSourceListener(source);
 
             app
-                .UseDataDogTracing(source)
+                .UseDataDogTracing(_ => source)
                 .UseMvc();
         }
 

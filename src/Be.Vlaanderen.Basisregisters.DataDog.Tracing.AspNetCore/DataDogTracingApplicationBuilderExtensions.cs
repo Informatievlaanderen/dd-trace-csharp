@@ -2,13 +2,14 @@ namespace Be.Vlaanderen.Basisregisters.DataDog.Tracing.AspNetCore
 {
     using System;
     using Microsoft.AspNetCore.Builder;
+    using Microsoft.AspNetCore.Http;
     using Tracing;
 
     public static class DataDogTracingApplicationBuilderExtensions
     {
         public static IApplicationBuilder UseDataDogTracing(
             this IApplicationBuilder app,
-            TraceSource source,
+            Func<HttpRequest, TraceSource> getTraceSource,
             string serviceName = "web",
             Func<string, bool> shouldTracePathFunc = null)
         {
@@ -17,8 +18,9 @@ namespace Be.Vlaanderen.Basisregisters.DataDog.Tracing.AspNetCore
 
             app.Use(async (context, next) =>
             {
-                var resource = context.Request.Host.Host;
-                var path = context.Request.Path.HasValue ? context.Request.Path.Value : string.Empty;
+                var path = context.Request.Path.HasValue
+                    ? context.Request.Path.Value
+                    : string.Empty;
 
                 if (!shouldTracePathFunc(path))
                 {
@@ -26,7 +28,9 @@ namespace Be.Vlaanderen.Basisregisters.DataDog.Tracing.AspNetCore
                     return;
                 }
 
-                using (var span = source.Begin("aspnet.request", serviceName, resource, "web"))
+                var source = getTraceSource(context.Request);
+
+                using (var span = source.Begin("aspnet.request", serviceName, path, "web"))
                 using (new TraceContextScope(span))
                 {
                     span.SetMeta("http.method", context.Request.Method);

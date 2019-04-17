@@ -47,14 +47,17 @@ namespace Be.Vlaanderen.Basisregisters.DataDog.Tracing.Autofac
                 .SingleInstance();
 
             containerBuilder
-                .Register(context =>
+                .Register<Func<string, TraceSource>>(context =>
                 {
-                    var source = new TraceSource();
-                    source.Subscribe(context.Resolve<TraceAgent>());
-                    return source;
+                    return traceId =>
+                    {
+                        var source = new TraceSource(traceId);
+                        source.Subscribe(context.Resolve<TraceAgent>());
+                        return source;
+                    };
                 })
-                .As<TraceSource>()
-                .InstancePerLifetimeScope();
+                .As<Func<string, TraceSource>>()
+                .SingleInstance();
         }
     }
 }

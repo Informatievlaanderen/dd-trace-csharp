@@ -10,6 +10,10 @@ namespace Be.Vlaanderen.Basisregisters.DataDog.Tracing
     {
         private readonly Subject<Trace> _subject = new Subject<Trace>();
 
+        private readonly string _traceId;
+
+        public TraceSource(string traceId) => _traceId = traceId;
+
         /// <summary>
         /// Begins a new trace.
         /// </summary>
@@ -23,7 +27,7 @@ namespace Be.Vlaanderen.Basisregisters.DataDog.Tracing
         public ISpan Begin(string name, string serviceName, string resource, string type)
             => new RootSpan(_subject)
             {
-                TraceId = Util.NewTraceId(),
+                TraceId = _traceId,
                 SpanId = Util.NewSpanId(),
                 Name = name,
                 Resource = resource,
