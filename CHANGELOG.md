@@ -1,3 +1,15 @@
+# [2.0.0](https://github.com/informatievlaanderen/datadog-tracing/compare/v1.2.0...v2.0.0) (2019-04-17)
+
+
+### Features
+
+* provide your own trace id ([d26bc7d](https://github.com/informatievlaanderen/datadog-tracing/commit/d26bc7d))
+
+
+### BREAKING CHANGES
+
+* UseDataDogTracing now expects a function to return a TraceSource per request
+
 # [1.2.0](https://github.com/informatievlaanderen/datadog-tracing/compare/v1.1.1...v1.2.0) (2019-04-17)
 
 
