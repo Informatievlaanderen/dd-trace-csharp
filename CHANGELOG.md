@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/informatievlaanderen/datadog-tracing/compare/v1.1.1...v1.2.0) (2019-04-17)
+
+
+### Features
+
+* update dependencies ([f136ea1](https://github.com/informatievlaanderen/datadog-tracing/commit/f136ea1))
+
 ## [1.1.1](https://github.com/informatievlaanderen/datadog-tracing/compare/v1.1.0...v1.1.1) (2019-01-16)
 
 
