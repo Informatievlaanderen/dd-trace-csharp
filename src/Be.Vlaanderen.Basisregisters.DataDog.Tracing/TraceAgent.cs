@@ -31,12 +31,15 @@ namespace Be.Vlaanderen.Basisregisters.DataDog.Tracing
         public TraceAgent(Uri baseUrl, int queueCapacity)
             : this(baseUrl, queueCapacity, null) { }
 
-        public TraceAgent(Uri baseUrl, int queueCapacity, ILogger logger)
+        public TraceAgent(
+            Uri baseUrl,
+            int queueCapacity,
+            ILogger logger)
         {
             _logger = logger;
             _client.BaseAddress = baseUrl ?? new Uri("http://localhost:8126");
 
-            var transform = new TransformBlock<RootSpan, byte[]>((Func<RootSpan, byte[]>)SerializeTraces, new ExecutionDataflowBlockOptions { BoundedCapacity = queueCapacity });
+            var transform = new TransformBlock<RootSpan, byte[]>(SerializeTraces, new ExecutionDataflowBlockOptions { BoundedCapacity = queueCapacity });
             var send = new ActionBlock<byte[]>(PutTraces, new ExecutionDataflowBlockOptions { BoundedCapacity = queueCapacity });
             transform.LinkTo(send, new DataflowLinkOptions { PropagateCompletion = true });
             _block = transform;
@@ -51,8 +54,18 @@ namespace Be.Vlaanderen.Basisregisters.DataDog.Tracing
 
         public void OnNext(Trace value) => _block.Post(value.Root);
 
-        private static byte[] SerializeTraces(RootSpan trace)
+        private byte[] SerializeTraces(RootSpan trace)
         {
+            if (_logger?.IsEnabled(LogLevel.Debug) ?? false)
+            {
+                using (var writer = new StringWriter())
+                {
+                    Serializer.Serialize(writer, new[] { trace.Spans });
+                    writer.Flush();
+                    _logger?.LogDebug("Preparing to put {SpanJson}", writer.ToString());
+                }
+            }
+
             using (var ms = new MemoryStream())
             using (var writer = new StreamWriter(ms, Encoding))
             {
@@ -70,11 +83,11 @@ namespace Be.Vlaanderen.Basisregisters.DataDog.Tracing
                 content.Headers.ContentType = ContentHeader;
                 using (var response = await _client.PutAsync("/v0.3/traces", content))
                 {
-                    _logger?.LogDebug("PUT responded with " + response.StatusCode);
-                    _logger?.LogDebug(await response.Content.ReadAsStringAsync());
+                    _logger?.LogDebug("PUT responded with status {StatusCode}", response.StatusCode);
+                    _logger?.LogDebug("PUT responded with {Body}", await response.Content.ReadAsStringAsync());
 
                     if (!response.IsSuccessStatusCode)
-                        _logger?.LogError($"HTTP {response.StatusCode} from PUT /v0.3/traces");
+                        _logger?.LogError("HTTP {StatusCode} from PUT /v0.3/traces", response.StatusCode);
                 }
             }
             catch (Exception ex)
