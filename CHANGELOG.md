@@ -1,3 +1,10 @@
+# [3.2.0](https://github.com/informatievlaanderen/datadog-tracing/compare/v3.1.1...v3.2.0) (2019-04-18)
+
+
+### Features
+
+* add traceid to logcontext ([4ee013b](https://github.com/informatievlaanderen/datadog-tracing/commit/4ee013b))
+
 ## [3.1.1](https://github.com/informatievlaanderen/datadog-tracing/compare/v3.1.0...v3.1.1) (2019-04-18)
 
 
