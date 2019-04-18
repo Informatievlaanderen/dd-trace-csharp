@@ -1,5 +1,7 @@
 Microsoft.AspNetCore.Http.Abstractions
 Microsoft.AspNetCore.Mvc.Abstractions
 
+Serilog
+
 SourceLink.Embed.AllSourceFiles
 SourceLink.Copy.PdbFiles

@@ -20,6 +20,7 @@ dependencies
 
     Microsoft.AspNetCore.Http.Abstractions >= LOCKEDVERSION
     Microsoft.AspNetCore.Mvc.Abstractions >= LOCKEDVERSION
+    Serilog >= LOCKEDVERSION
 
 files
   bin\Release\netstandard2.0\Be.Vlaanderen.Basisregisters.DataDog.Tracing.AspNetCore.dll => lib\netstandard2.0
