@@ -1,3 +1,10 @@
+## [3.1.1](https://github.com/informatievlaanderen/datadog-tracing/compare/v3.1.0...v3.1.1) (2019-04-18)
+
+
+### Bug Fixes
+
+* properly register tracesource factory ([7cd0732](https://github.com/informatievlaanderen/datadog-tracing/commit/7cd0732))
+
 # [3.1.0](https://github.com/informatievlaanderen/datadog-tracing/compare/v3.0.0...v3.1.0) (2019-04-18)
 
 
