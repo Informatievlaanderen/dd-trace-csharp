@@ -7,7 +7,7 @@ namespace TestApp
     {
         static void Main(string[] args)
         {
-            var source = new TraceSource("some_trace_id");
+            var source = new TraceSource(42);
             var agent = new TraceAgent();
             using (source.Subscribe(agent))
             using (var span = source.Begin("sample-trace", "test-app", "Main", "console"))

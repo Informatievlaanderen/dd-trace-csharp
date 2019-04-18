@@ -10,9 +10,9 @@ namespace Be.Vlaanderen.Basisregisters.DataDog.Tracing
     {
         private readonly Subject<Trace> _subject = new Subject<Trace>();
 
-        private readonly string _traceId;
+        private readonly long _traceId;
 
-        public TraceSource(string traceId) => _traceId = traceId;
+        public TraceSource(long traceId) => _traceId = traceId;
 
         /// <summary>
         /// Begins a new trace.

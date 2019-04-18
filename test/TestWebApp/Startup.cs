@@ -30,7 +30,7 @@ namespace TestWebApp
             if (env.IsDevelopment())
                 app.UseDeveloperExceptionPage();
 
-            var source = new TraceSource("some_trace_id");
+            var source = new TraceSource(42);
             SetupSourceListener(source);
 
             app
