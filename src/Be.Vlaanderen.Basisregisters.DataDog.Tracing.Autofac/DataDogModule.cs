@@ -58,7 +58,7 @@ namespace Be.Vlaanderen.Basisregisters.DataDog.Tracing.Autofac
                         return source;
                     };
                 })
-                .As<Func<string, TraceSource>>()
+                .As<Func<long, TraceSource>>()
                 .SingleInstance();
         }
     }
