@@ -1,3 +1,10 @@
+## [2.0.1](https://github.com/informatievlaanderen/datadog-tracing/compare/v2.0.0...v2.0.1) (2019-04-18)
+
+
+### Bug Fixes
+
+* properly register with autofac ([58edd1a](https://github.com/informatievlaanderen/datadog-tracing/commit/58edd1a))
+
 # [2.0.0](https://github.com/informatievlaanderen/datadog-tracing/compare/v1.2.0...v2.0.0) (2019-04-17)
 
 
