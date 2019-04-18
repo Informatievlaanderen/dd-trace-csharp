@@ -1,3 +1,10 @@
+# [3.1.0](https://github.com/informatievlaanderen/datadog-tracing/compare/v3.0.0...v3.1.0) (2019-04-18)
+
+
+### Features
+
+* add extra debug logging for traceagent ([014d5be](https://github.com/informatievlaanderen/datadog-tracing/commit/014d5be))
+
 # [3.0.0](https://github.com/informatievlaanderen/datadog-tracing/compare/v2.0.1...v3.0.0) (2019-04-18)
 
 
