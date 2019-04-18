@@ -1,3 +1,15 @@
+# [3.0.0](https://github.com/informatievlaanderen/datadog-tracing/compare/v2.0.1...v3.0.0) (2019-04-18)
+
+
+### Bug Fixes
+
+* trace id has to be a long ([a1e791e](https://github.com/informatievlaanderen/datadog-tracing/commit/a1e791e))
+
+
+### BREAKING CHANGES
+
+* Trace Id has to be a long instead of a string
+
 ## [2.0.1](https://github.com/informatievlaanderen/datadog-tracing/compare/v2.0.0...v2.0.1) (2019-04-18)
 
 
