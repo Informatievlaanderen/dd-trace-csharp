@@ -1,3 +1,5 @@
+## [3.2.1](https://github.com/informatievlaanderen/datadog-tracing/compare/v3.2.0...v3.2.1) (2019-04-25)
+
 # [3.2.0](https://github.com/informatievlaanderen/datadog-tracing/compare/v3.1.1...v3.2.0) (2019-04-18)
 
 
