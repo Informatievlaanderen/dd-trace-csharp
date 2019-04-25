@@ -8,29 +8,23 @@ source https://api.nuget.org/v3/index.json
 // When doing development as an employee, uncomment this to use the private NuGet proxy
 // source https://informatievlaanderen.myget.org/F/nuget-mirror/api/v3/index.json username: "%MYGET_FEED_USER%" password: "%MYGET_FEED_PASS%" authtype: "basic"
 
-// This is what Microsoft likes to do from now on, except it makes no sense
-// - It does not work for self contained apps
-// - It requires you to pre install this new "GAC" on every machine
-// - It requires huge Docker base images to contain this new "GAC"
-// nuget Microsoft.AspNetCore.All 2.0.0
-
 // DOTNETCORE ISSUES
-nuget Microsoft.NETCore.App 2.2.0
-nuget Microsoft.NETCore.DotNetAppHost 2.2.0
-nuget Microsoft.NETCore.DotNetHostResolver 2.2.0
-nuget Microsoft.NETCore.DotNetHostPolicy 2.2.0
+nuget Microsoft.NETCore.App 2.2.4
+nuget Microsoft.NETCore.DotNetAppHost 2.2.4
+nuget Microsoft.NETCore.DotNetHostResolver 2.2.4
+nuget Microsoft.NETCore.DotNetHostPolicy 2.2.4
 nuget NETStandard.Library 2.0.3
 
 // PRODUCTION STUFF
 nuget Microsoft.AspNetCore 2.2.0
-nuget Microsoft.AspNetCore.Mvc.Core 2.2.0
+nuget Microsoft.AspNetCore.Mvc.Core 2.2.2
 nuget Microsoft.AspNetCore.Mvc.Abstractions 2.2.0
 nuget Microsoft.AspNetCore.Http.Abstractions 2.2.0
 
 nuget Microsoft.Extensions.Logging.Abstractions 2.2.0
 nuget Microsoft.Extensions.Configuration 2.2.0
 
-nuget Newtonsoft.Json 12.0.1
+nuget Newtonsoft.Json 12.0.2
 
 nuget Microsoft.CSharp 4.5.0
 
@@ -49,7 +43,7 @@ nuget FeatureToggle 4.0.2
 nuget Serilog 2.8.0
 
 // VBR STUFF
-nuget Be.Vlaanderen.Basisregisters.Build.Pipeline ~> 1.1
+nuget Be.Vlaanderen.Basisregisters.Build.Pipeline ~> 1.6
 
 // TEST STUFF
 nuget Microsoft.NET.Test.Sdk 16.0.1
@@ -59,7 +53,7 @@ nuget xunit 2.4.1
 nuget Moq 4.10.1
 nuget FluentAssertions 5.6.0
 
-nuget Microsoft.Data.Sqlite.Core 2.2.0
+nuget Microsoft.Data.Sqlite.Core 2.2.4
 nuget sqlite-net-pcl 1.5.231
 
 // BUILD STUFF
