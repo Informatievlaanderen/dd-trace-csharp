@@ -1,3 +1,15 @@
+# [3.3.0](https://github.com/informatievlaanderen/datadog-tracing/compare/v3.2.1...v3.3.0) (2019-08-12)
+
+
+### Bug Fixes
+
+* revert to previous sqlite ([593571b](https://github.com/informatievlaanderen/datadog-tracing/commit/593571b))
+
+
+### Features
+
+* span exposes traceid ([49ea65c](https://github.com/informatievlaanderen/datadog-tracing/commit/49ea65c))
+
 ## [3.2.1](https://github.com/informatievlaanderen/datadog-tracing/compare/v3.2.0...v3.2.1) (2019-04-25)
 
 # [3.2.0](https://github.com/informatievlaanderen/datadog-tracing/compare/v3.1.1...v3.2.0) (2019-04-18)
