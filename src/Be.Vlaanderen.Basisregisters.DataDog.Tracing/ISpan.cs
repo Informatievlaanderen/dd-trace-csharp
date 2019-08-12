@@ -1,4 +1,4 @@
-﻿namespace Be.Vlaanderen.Basisregisters.DataDog.Tracing
+namespace Be.Vlaanderen.Basisregisters.DataDog.Tracing
 {
     using System;
 
@@ -7,6 +7,11 @@
     /// </summary>
     public interface ISpan : ISpanSource, IDisposable
     {
+        /// <summary>
+        /// Gets the trace id on the spam.
+        /// </summary>
+        long TraceId { get; }
+
         /// <summary>
         /// Gets or sets the resource name on the span.
         /// </summary>
