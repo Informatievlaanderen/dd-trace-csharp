@@ -1,3 +1,10 @@
+# [3.5.0](https://github.com/informatievlaanderen/datadog-tracing/compare/v3.4.0...v3.5.0) (2019-08-20)
+
+
+### Features
+
+* add parent id to span ([6497904](https://github.com/informatievlaanderen/datadog-tracing/commit/6497904))
+
 # [3.4.0](https://github.com/informatievlaanderen/datadog-tracing/compare/v3.3.0...v3.4.0) (2019-08-20)
 
 
