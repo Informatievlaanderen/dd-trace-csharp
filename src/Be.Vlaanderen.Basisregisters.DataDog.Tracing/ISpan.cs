@@ -11,6 +11,11 @@ namespace Be.Vlaanderen.Basisregisters.DataDog.Tracing
         /// Gets the trace id on the span.
         /// </summary>
         long TraceId { get; }
+        
+        /// <summary>
+        /// Gets the id on the span.
+        /// </summary>
+        long SpanId { get; }
 
         /// <summary>
         /// Gets the parent id on the span.
