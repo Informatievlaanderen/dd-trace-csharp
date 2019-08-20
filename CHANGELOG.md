@@ -1,3 +1,10 @@
+# [3.4.0](https://github.com/informatievlaanderen/datadog-tracing/compare/v3.3.0...v3.4.0) (2019-08-20)
+
+
+### Features
+
+* add support for parent span id ([44f7033](https://github.com/informatievlaanderen/datadog-tracing/commit/44f7033))
+
 # [3.3.0](https://github.com/informatievlaanderen/datadog-tracing/compare/v3.2.1...v3.3.0) (2019-08-12)
 
 
