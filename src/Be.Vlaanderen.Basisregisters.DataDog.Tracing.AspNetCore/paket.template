@@ -19,6 +19,7 @@ dependencies
     Be.Vlaanderen.Basisregisters.DataDog.Tracing CURRENTVERSION
 
     Microsoft.AspNetCore.Http.Abstractions >= LOCKEDVERSION
+    Microsoft.AspNetCore.Http.Extensions >= LOCKEDVERSION
     Microsoft.AspNetCore.Mvc.Abstractions >= LOCKEDVERSION
     Serilog >= LOCKEDVERSION
 

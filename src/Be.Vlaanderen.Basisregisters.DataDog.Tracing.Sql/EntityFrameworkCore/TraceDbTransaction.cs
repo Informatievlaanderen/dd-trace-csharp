@@ -51,6 +51,8 @@ namespace Be.Vlaanderen.Basisregisters.DataDog.Tracing.Sql.EntityFrameworkCore
             var span = _spanSource.Begin(name, ServiceName, Transaction.Connection.Database, TypeName);
             try
             {
+                span.SetMeta("db.name", Transaction.Connection.Database);
+
                 Transaction.Commit();
             }
             catch (Exception ex)
@@ -70,6 +72,8 @@ namespace Be.Vlaanderen.Basisregisters.DataDog.Tracing.Sql.EntityFrameworkCore
             var span = _spanSource.Begin(name, ServiceName, Transaction.Connection.Database, TypeName);
             try
             {
+                span.SetMeta("db.name", Transaction.Connection.Database);
+
                 Transaction.Rollback();
             }
             catch (Exception ex)

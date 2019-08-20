@@ -45,7 +45,7 @@ namespace Be.Vlaanderen.Basisregisters.DataDog.Tracing.Autofac
                 })
                 .As<TraceAgent>()
                 .SingleInstance();
-
+            
             containerBuilder
                 .Register<Func<long, TraceSource>>(c =>
                 {
@@ -59,6 +59,21 @@ namespace Be.Vlaanderen.Basisregisters.DataDog.Tracing.Autofac
                     };
                 })
                 .As<Func<long, TraceSource>>()
+                .SingleInstance();
+
+            containerBuilder
+                .Register<Func<TraceSourceArguments, TraceSource>>(c =>
+                {
+                    var context = c.Resolve<IComponentContext>();
+
+                    return args =>
+                    {
+                        var source = new TraceSource(args);
+                        source.Subscribe(context.Resolve<TraceAgent>());
+                        return source;
+                    };
+                })
+                .As<Func<TraceSourceArguments, TraceSource>>()
                 .SingleInstance();
         }
     }

@@ -1,4 +1,5 @@
 Microsoft.AspNetCore.Http.Abstractions
+Microsoft.AspNetCore.Http.Extensions
 Microsoft.AspNetCore.Mvc.Abstractions
 
 Serilog

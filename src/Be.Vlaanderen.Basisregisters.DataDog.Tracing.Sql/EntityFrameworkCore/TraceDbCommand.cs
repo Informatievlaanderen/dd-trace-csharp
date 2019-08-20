@@ -1,4 +1,4 @@
-﻿namespace Be.Vlaanderen.Basisregisters.DataDog.Tracing.Sql.EntityFrameworkCore
+namespace Be.Vlaanderen.Basisregisters.DataDog.Tracing.Sql.EntityFrameworkCore
 {
     using System;
     using System.Data;
@@ -101,7 +101,7 @@
                 {
                     const string metaKey = "sql." + nameof(CommandBehavior);
                     span.SetMeta(metaKey, behavior.ToString("x"));
-                    SetMeta(span);
+                    SetMeta(span, _command);
                 }
 
                 return _command.ExecuteReader(behavior);
@@ -124,10 +124,12 @@
             try
             {
                 var result = _command.ExecuteNonQuery();
+
                 if (span != null)
                 {
                     span.SetMeta("sql.RowsAffected", result.ToString());
-                    SetMeta(span);
+                    span.SetMeta("sql.rows", result.ToString());
+                    SetMeta(span, _command);
                 }
 
                 return result;
@@ -150,7 +152,7 @@
             try
             {
                 if (span != null)
-                    SetMeta(span);
+                    SetMeta(span, _command);
 
                 return _command.ExecuteScalar();
             }
@@ -165,8 +167,9 @@
             }
         }
 
-        private void SetMeta(ISpan span)
+        private void SetMeta(ISpan span, DbCommand command)
         {
+            span.SetMeta("db.name", command.Connection.Database);
             span.SetMeta("sql.CommandText", CommandText);
             span.SetMeta("sql.CommandType", CommandType.ToString());
         }

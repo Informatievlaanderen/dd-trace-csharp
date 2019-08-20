@@ -20,6 +20,7 @@ nuget Microsoft.AspNetCore 2.2.0
 nuget Microsoft.AspNetCore.Mvc.Core 2.2.2
 nuget Microsoft.AspNetCore.Mvc.Abstractions 2.2.0
 nuget Microsoft.AspNetCore.Http.Abstractions 2.2.0
+nuget Microsoft.AspNetCore.Http.Extensions 2.2.0
 
 nuget Microsoft.Extensions.Logging.Abstractions 2.2.0
 nuget Microsoft.Extensions.Configuration 2.2.0

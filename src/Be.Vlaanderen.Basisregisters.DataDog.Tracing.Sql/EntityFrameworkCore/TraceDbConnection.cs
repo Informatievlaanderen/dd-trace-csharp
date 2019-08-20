@@ -72,6 +72,8 @@ namespace Be.Vlaanderen.Basisregisters.DataDog.Tracing.Sql.EntityFrameworkCore
             var span = _spanSource.Begin("sql.connect", ServiceName, _connection.Database, TypeName);
             try
             {
+                span.SetMeta("db.name", _connection.Database);
+
                 _connection.Open();
             }
             catch (Exception ex)

@@ -18,6 +18,9 @@ namespace Be.Vlaanderen.Basisregisters.DataDog.Tracing.AspNetCore
             action = action ?? "unknown";
             controller = controller ?? "unknown";
             span.Resource = $"{controller}.{action}";
+
+            span.SetMeta("aspnet.controller", controller);
+            span.SetMeta("aspnet.action", action);
         }
     }
 }

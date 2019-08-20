@@ -3,6 +3,7 @@ namespace Be.Vlaanderen.Basisregisters.DataDog.Tracing.AspNetCore
     using System;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Http;
+    using Microsoft.AspNetCore.Http.Extensions;
     using Tracing;
     using Serilog.Context;
 
@@ -35,7 +36,13 @@ namespace Be.Vlaanderen.Basisregisters.DataDog.Tracing.AspNetCore
                 using (var span = source.Begin("aspnet.request", serviceName, path, "web"))
                 using (new TraceContextScope(span))
                 {
+                    span.SetMeta("span.kind", "server");
+                    span.SetMeta("manual.keep", "true");
+
                     span.SetMeta("http.method", context.Request.Method);
+                    span.SetMeta("http.request.headers.host", context.Request.Host.ToUriComponent());
+                    span.SetMeta("http.url", context.Request.GetEncodedUrl());
+
                     span.SetMeta("http.path", path);
                     span.SetMeta("http.query", context.Request.QueryString.HasValue
                         ? context.Request.QueryString.Value

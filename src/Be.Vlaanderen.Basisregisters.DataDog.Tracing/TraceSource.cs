@@ -10,9 +10,15 @@ namespace Be.Vlaanderen.Basisregisters.DataDog.Tracing
     {
         private readonly Subject<Trace> _subject = new Subject<Trace>();
 
-        public long TraceId { get; }
+        public long TraceId => Arguments.TraceId;
 
-        public TraceSource(long traceId) => TraceId = traceId;
+        public long? ParentSpanId => Arguments.ParentSpanId;
+
+        public TraceSourceArguments Arguments { get; }
+
+        public TraceSource(long traceId) : this (new TraceSourceArguments(traceId)) { }
+
+        public TraceSource(TraceSourceArguments args) => Arguments = args;
 
         /// <summary>
         /// Begins a new trace.
@@ -34,6 +40,7 @@ namespace Be.Vlaanderen.Basisregisters.DataDog.Tracing
                 Type = type,
                 Service = serviceName,
                 Start = Util.GetTimestamp(),
+                ParentId = ParentSpanId
             };
 
         /// <summary>
