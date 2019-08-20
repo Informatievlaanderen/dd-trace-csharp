@@ -13,6 +13,11 @@ namespace Be.Vlaanderen.Basisregisters.DataDog.Tracing
         long TraceId { get; }
 
         /// <summary>
+        /// Gets the parent id on the span.
+        /// </summary>
+        long? ParentId { get; }
+
+        /// <summary>
         /// Gets or sets the resource name on the span.
         /// </summary>
         string Resource { get; set; }
