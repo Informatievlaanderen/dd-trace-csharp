@@ -1,3 +1,10 @@
+# [3.6.0](https://github.com/informatievlaanderen/datadog-tracing/compare/v3.5.0...v3.6.0) (2019-08-20)
+
+
+### Features
+
+* add spanid to ispan ([2d387f5](https://github.com/informatievlaanderen/datadog-tracing/commit/2d387f5))
+
 # [3.5.0](https://github.com/informatievlaanderen/datadog-tracing/compare/v3.4.0...v3.5.0) (2019-08-20)
 
 
