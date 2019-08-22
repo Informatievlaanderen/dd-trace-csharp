@@ -57,6 +57,14 @@ nuget FluentAssertions 5.8.0
 nuget Microsoft.Data.Sqlite.Core 2.2.6
 nuget sqlite-net-pcl 1.5.231
 
+// SQLitePCLRaw 2.x is only for .NET Core 3.x, we need to force it into 1.x
+nuget SQLitePCLRaw.core ~> 1
+nuget SQLitePCLRaw.bundle_green ~> 1
+nuget SQLitePCLRaw.lib.e_sqlite3.linux ~> 1
+nuget SQLitePCLRaw.lib.e_sqlite3.osx ~> 1
+nuget SQLitePCLRaw.lib.e_sqlite3.v110_xp ~> 1
+nuget SQLitePCLRaw.provider.e_sqlite3.netstandard11 ~> 1
+
 // BUILD STUFF
 nuget FAKE 4.64.13 // Don't update to v5!
 nuget SourceLink.Embed.AllSourceFiles 2.8.3 copy_local: true
