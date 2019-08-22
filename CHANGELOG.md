@@ -1,3 +1,10 @@
+# [3.7.0](https://github.com/informatievlaanderen/datadog-tracing/compare/v3.6.0...v3.7.0) (2019-08-22)
+
+
+### Features
+
+* bump to .net 2.2.6 ([ff32175](https://github.com/informatievlaanderen/datadog-tracing/commit/ff32175))
+
 # [3.6.0](https://github.com/informatievlaanderen/datadog-tracing/compare/v3.5.0...v3.6.0) (2019-08-20)
 
 
