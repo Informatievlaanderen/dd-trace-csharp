@@ -69,12 +69,16 @@ namespace Be.Vlaanderen.Basisregisters.DataDog.Tracing.Sql.EntityFrameworkCore
 
         public override void Open()
         {
-            var span = _spanSource.Begin("sql.connect", ServiceName, _connection.Database, TypeName);
+            var span = _spanSource.Begin("sql.connect", ServiceName, "sql", TypeName);
             try
             {
-                span.SetMeta("db.name", _connection.Database);
-
                 _connection.Open();
+
+                if (span != null)
+                {
+                    span.Resource = _connection.Database;
+                    span.SetMeta("db.name", _connection.Database);
+                }
             }
             catch (Exception ex)
             {
