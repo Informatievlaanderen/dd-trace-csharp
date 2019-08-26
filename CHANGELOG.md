@@ -1,3 +1,10 @@
+## [3.7.1](https://github.com/informatievlaanderen/datadog-tracing/compare/v3.7.0...v3.7.1) (2019-08-26)
+
+
+### Bug Fixes
+
+* deal with databasename on open ([174f026](https://github.com/informatievlaanderen/datadog-tracing/commit/174f026))
+
 # [3.7.0](https://github.com/informatievlaanderen/datadog-tracing/compare/v3.6.0...v3.7.0) (2019-08-22)
 
 
