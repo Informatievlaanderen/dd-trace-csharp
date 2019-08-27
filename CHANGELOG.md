@@ -1,3 +1,10 @@
+## [3.7.2](https://github.com/informatievlaanderen/datadog-tracing/compare/v3.7.1...v3.7.2) (2019-08-27)
+
+
+### Bug Fixes
+
+* make datadog tracing check more for nulls ([3cdf821](https://github.com/informatievlaanderen/datadog-tracing/commit/3cdf821))
+
 ## [3.7.1](https://github.com/informatievlaanderen/datadog-tracing/compare/v3.7.0...v3.7.1) (2019-08-26)
 
 
