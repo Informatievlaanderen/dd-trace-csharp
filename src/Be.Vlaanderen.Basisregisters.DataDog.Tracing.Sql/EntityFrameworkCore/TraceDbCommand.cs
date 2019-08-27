@@ -94,15 +94,12 @@ namespace Be.Vlaanderen.Basisregisters.DataDog.Tracing.Sql.EntityFrameworkCore
         protected override DbDataReader ExecuteDbDataReader(CommandBehavior behavior)
         {
             const string name = "sql." + nameof(ExecuteReader);
-            var span = _spanSource.Begin(name, ServiceName, _command.Connection.Database, TypeName);
+            var span = _spanSource.Begin(name, ServiceName, "sql", TypeName);
             try
             {
-                if (span != null)
-                {
-                    const string metaKey = "sql." + nameof(CommandBehavior);
-                    span.SetMeta(metaKey, behavior.ToString("x"));
-                    SetMeta(span, _command);
-                }
+                const string metaKey = "sql." + nameof(CommandBehavior);
+                span?.SetMeta(metaKey, behavior.ToString("x"));
+                span?.SetMeta(_command);
 
                 return _command.ExecuteReader(behavior);
             }
@@ -120,17 +117,14 @@ namespace Be.Vlaanderen.Basisregisters.DataDog.Tracing.Sql.EntityFrameworkCore
         public override int ExecuteNonQuery()
         {
             const string name = "sql." + nameof(ExecuteNonQuery);
-            var span = _spanSource.Begin(name, ServiceName, _command.Connection.Database, TypeName);
+            var span = _spanSource.Begin(name, ServiceName, "sql", TypeName);
             try
             {
                 var result = _command.ExecuteNonQuery();
 
-                if (span != null)
-                {
-                    span.SetMeta("sql.RowsAffected", result.ToString());
-                    span.SetMeta("sql.rows", result.ToString());
-                    SetMeta(span, _command);
-                }
+                span?.SetMeta("sql.RowsAffected", result.ToString());
+                span?.SetMeta("sql.rows", result.ToString());
+                span?.SetMeta(_command);
 
                 return result;
             }
@@ -148,11 +142,10 @@ namespace Be.Vlaanderen.Basisregisters.DataDog.Tracing.Sql.EntityFrameworkCore
         public override object ExecuteScalar()
         {
             const string name = "sql." + nameof(ExecuteScalar);
-            var span = _spanSource.Begin(name, ServiceName, _command.Connection.Database, TypeName);
+            var span = _spanSource.Begin(name, ServiceName, "sql", TypeName);
             try
             {
-                if (span != null)
-                    SetMeta(span, _command);
+                span?.SetMeta(_command);
 
                 return _command.ExecuteScalar();
             }
@@ -165,13 +158,6 @@ namespace Be.Vlaanderen.Basisregisters.DataDog.Tracing.Sql.EntityFrameworkCore
             {
                 span?.Dispose();
             }
-        }
-
-        private void SetMeta(ISpan span, DbCommand command)
-        {
-            span.SetMeta("db.name", command.Connection.Database);
-            span.SetMeta("sql.CommandText", CommandText);
-            span.SetMeta("sql.CommandType", CommandType.ToString());
         }
     }
 }

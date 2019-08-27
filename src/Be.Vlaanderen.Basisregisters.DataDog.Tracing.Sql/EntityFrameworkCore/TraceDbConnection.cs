@@ -34,13 +34,19 @@ namespace Be.Vlaanderen.Basisregisters.DataDog.Tracing.Sql.EntityFrameworkCore
         }
 
         public TraceDbConnection(DbConnection connection)
-            : this(connection, DefaultServiceName, TraceContextSpanSource.Instance) { }
+            : this(connection, DefaultServiceName, TraceContextSpanSource.Instance)
+        {
+        }
 
         public TraceDbConnection(DbConnection connection, string serviceName)
-            : this(connection, serviceName, TraceContextSpanSource.Instance) { }
+            : this(connection, serviceName, TraceContextSpanSource.Instance)
+        {
+        }
 
         public TraceDbConnection(DbConnection connection, ISpanSource spanSource)
-            : this(connection, DefaultServiceName, spanSource) { }
+            : this(connection, DefaultServiceName, spanSource)
+        {
+        }
 
         public TraceDbConnection(DbConnection connection, string serviceName, ISpanSource spanSource)
         {
@@ -74,11 +80,7 @@ namespace Be.Vlaanderen.Basisregisters.DataDog.Tracing.Sql.EntityFrameworkCore
             {
                 _connection.Open();
 
-                if (span != null)
-                {
-                    span.Resource = _connection.Database;
-                    span.SetMeta("db.name", _connection.Database);
-                }
+                span?.SetDatabaseName(_connection);
             }
             catch (Exception ex)
             {

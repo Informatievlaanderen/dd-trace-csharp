@@ -48,12 +48,12 @@ namespace Be.Vlaanderen.Basisregisters.DataDog.Tracing.Sql.EntityFrameworkCore
         public override void Commit()
         {
             const string name = "sql." + nameof(Commit);
-            var span = _spanSource.Begin(name, ServiceName, Transaction.Connection.Database, TypeName);
+            var span = _spanSource.Begin(name, ServiceName, "sql", TypeName);
             try
             {
-                span.SetMeta("db.name", Transaction.Connection.Database);
-
                 Transaction.Commit();
+
+                span?.SetDatabaseName(Transaction);
             }
             catch (Exception ex)
             {
@@ -69,12 +69,12 @@ namespace Be.Vlaanderen.Basisregisters.DataDog.Tracing.Sql.EntityFrameworkCore
         public override void Rollback()
         {
             const string name = "sql." + nameof(Commit);
-            var span = _spanSource.Begin(name, ServiceName, Transaction.Connection.Database, TypeName);
+            var span = _spanSource.Begin(name, ServiceName, "sql", TypeName);
             try
             {
-                span.SetMeta("db.name", Transaction.Connection.Database);
-
                 Transaction.Rollback();
+
+                span?.SetDatabaseName(Transaction);
             }
             catch (Exception ex)
             {
