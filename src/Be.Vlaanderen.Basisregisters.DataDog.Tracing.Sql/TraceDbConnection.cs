@@ -86,19 +86,15 @@ namespace Be.Vlaanderen.Basisregisters.DataDog.Tracing.Sql
     public class TraceDbConnection<T> : TraceDbConnection
     {
         public TraceDbConnection(IDbConnection connection)
-            : base(connection)
-        {  }
+            : base(connection) {}
 
         public TraceDbConnection(IDbConnection connection, string serviceName)
-            : base(connection, serviceName)
-        { }
+            : base(connection, serviceName) {}
 
         public TraceDbConnection(IDbConnection connection, ISpanSource spanSource)
-            : base(connection, spanSource)
-        { }
+            : base(connection, spanSource) {}
 
         public TraceDbConnection(IDbConnection connection, string serviceName, ISpanSource spanSource)
-            : base(connection, serviceName, spanSource)
-        { }
+            : base(connection, serviceName, spanSource) {}
     }
 }
