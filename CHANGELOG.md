@@ -1,3 +1,10 @@
+# [3.9.0](https://github.com/informatievlaanderen/datadog-tracing/compare/v3.8.0...v3.9.0) (2019-09-16)
+
+
+### Features
+
+* add generic EF tracedbconnection ([1f40d32](https://github.com/informatievlaanderen/datadog-tracing/commit/1f40d32))
+
 # [3.8.0](https://github.com/informatievlaanderen/datadog-tracing/compare/v3.7.2...v3.8.0) (2019-09-16)
 
 
