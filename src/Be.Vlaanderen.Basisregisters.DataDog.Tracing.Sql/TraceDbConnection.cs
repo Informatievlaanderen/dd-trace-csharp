@@ -78,4 +78,27 @@ namespace Be.Vlaanderen.Basisregisters.DataDog.Tracing.Sql
             }
         }
     }
+
+    /// <summary>
+    /// Typed version which allows to have multiple TraceDbConnection registered for dependency injection
+    /// </summary>
+    /// <typeparam name="T">Type used as a differentiator between the registered TraceDbConnections</typeparam>
+    public class TraceDbConnection<T> : TraceDbConnection
+    {
+        public TraceDbConnection(IDbConnection connection)
+            : base(connection)
+        {  }
+
+        public TraceDbConnection(IDbConnection connection, string serviceName)
+            : base(connection, serviceName)
+        { }
+
+        public TraceDbConnection(IDbConnection connection, ISpanSource spanSource)
+            : base(connection, spanSource)
+        { }
+
+        public TraceDbConnection(IDbConnection connection, string serviceName, ISpanSource spanSource)
+            : base(connection, serviceName, spanSource)
+        { }
+    }
 }
