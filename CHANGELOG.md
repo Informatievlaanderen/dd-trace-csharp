@@ -1,3 +1,10 @@
+# [3.8.0](https://github.com/informatievlaanderen/datadog-tracing/compare/v3.7.2...v3.8.0) (2019-09-16)
+
+
+### Features
+
+* add typed version of TraceDbConnection for dependency injection ([6f46c4e](https://github.com/informatievlaanderen/datadog-tracing/commit/6f46c4e))
+
 ## [3.7.2](https://github.com/informatievlaanderen/datadog-tracing/compare/v3.7.1...v3.7.2) (2019-08-27)
 
 
