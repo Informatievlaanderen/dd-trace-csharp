@@ -1,3 +1,20 @@
+# [4.0.0](https://github.com/informatievlaanderen/datadog-tracing/compare/v3.9.0...v4.0.0) (2019-11-22)
+
+
+### Code Refactoring
+
+* upgrade to netcoreapp30 ([e5286a0](https://github.com/informatievlaanderen/datadog-tracing/commit/e5286a0))
+
+
+### Features
+
+* support trace analytics ([e6cd161](https://github.com/informatievlaanderen/datadog-tracing/commit/e6cd161))
+
+
+### BREAKING CHANGES
+
+* Upgrade to .NET Core 3
+
 # [3.9.0](https://github.com/informatievlaanderen/datadog-tracing/compare/v3.8.0...v3.9.0) (2019-09-16)
 
 
