@@ -1,5 +1,8 @@
-﻿namespace Be.Vlaanderen.Basisregisters.DataDog.Tracing.AspNetCore
+namespace Be.Vlaanderen.Basisregisters.DataDog.Tracing.AspNetCore
 {
+    using System;
+    using Microsoft.AspNetCore.Http;
+
     public class TraceOptions
     {
         public string ServiceName { get; set; } = "web";

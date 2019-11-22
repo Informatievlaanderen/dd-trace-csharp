@@ -1,5 +1,3 @@
-Microsoft.NETCore.App
-
 Microsoft.Data.Sqlite.Core
 sqlite-net-pcl
 

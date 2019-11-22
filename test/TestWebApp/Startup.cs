@@ -19,14 +19,16 @@ namespace TestWebApp
         {
             services
                 .AddMvcCore()
-                .AddMvcOptions(mvc => mvc.Filters.Add(new DataDogTracingFilter()));
+                .AddMvcOptions(mvc =>
+                {
+                    mvc.EnableEndpointRouting = false;
+                    mvc.Filters.Add(new DataDogTracingFilter());
+                });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
-            loggerFactory.AddConsole();
-
             if (env.IsDevelopment())
                 app.UseDeveloperExceptionPage();
 
@@ -34,7 +36,9 @@ namespace TestWebApp
             SetupSourceListener(source);
 
             app
-                .UseDataDogTracing(_ => source)
+                .UseDataDogTracing(new TraceOptions {
+                    TraceSource = _ => source
+                })
                 .UseMvc();
         }
 

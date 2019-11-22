@@ -20,7 +20,7 @@ namespace Be.Vlaanderen.Basisregisters.DataDog.Tracing.AspNetCore
                 options.ShouldTracePath = x => true;
 
             if (options.TraceSource == null)
-                throw new ArgumentException("Missing TraceSource function.", nameof(options.TraceSource))
+                throw new ArgumentException("Missing TraceSource function.", nameof(options.TraceSource));
 
             app.Use(async (context, next) =>
             {

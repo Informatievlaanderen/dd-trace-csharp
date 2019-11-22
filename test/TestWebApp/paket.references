@@ -1,7 +1,3 @@
-Microsoft.NETCore.App
-Microsoft.AspNetCore
-Microsoft.AspNetCore.Mvc.Core
-
 Newtonsoft.Json
 
 SourceLink.Embed.AllSourceFiles
