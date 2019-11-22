@@ -11,12 +11,16 @@ namespace Be.Vlaanderen.Basisregisters.DataDog.Tracing.AspNetCore
     {
         public static IApplicationBuilder UseDataDogTracing(
             this IApplicationBuilder app,
-            Func<HttpRequest, TraceSource> getTraceSource,
-            string serviceName = "web",
-            Func<string, bool> shouldTracePathFunc = null)
+            TraceOptions options)
         {
-            if (shouldTracePathFunc == null)
-                shouldTracePathFunc = x => true;
+            if (string.IsNullOrWhiteSpace(options.ServiceName))
+                options.ServiceName = "web";
+
+            if (options.ShouldTracePath == null)
+                options.ShouldTracePath = x => true;
+
+            if (options.TraceSource == null)
+                throw new ArgumentException("Missing TraceSource function.", nameof(options.TraceSource))
 
             app.Use(async (context, next) =>
             {
@@ -24,20 +28,23 @@ namespace Be.Vlaanderen.Basisregisters.DataDog.Tracing.AspNetCore
                     ? context.Request.Path.Value
                     : string.Empty;
 
-                if (!shouldTracePathFunc(path))
+                if (!options.ShouldTracePath(path))
                 {
                     await next();
                     return;
                 }
 
-                var source = getTraceSource(context.Request);
+                var source = options.TraceSource(context.Request);
 
                 using (LogContext.PushProperty("TraceId", source.TraceId))
-                using (var span = source.Begin("aspnet.request", serviceName, path, "web"))
+                using (var span = source.Begin("aspnet.request", options.ServiceName, path, "web"))
                 using (new TraceContextScope(span))
                 {
                     span.SetMeta("span.kind", "server");
                     span.SetMeta("manual.keep", "true");
+
+                    if (options.AnalyticsEnabled)
+                        span.SetMeta("_dd1.sr.eausr", "true");
 
                     span.SetMeta("http.method", context.Request.Method);
                     span.SetMeta("http.request.headers.host", context.Request.Host.ToUriComponent());

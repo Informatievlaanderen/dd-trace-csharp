@@ -1,0 +1,13 @@
+﻿namespace Be.Vlaanderen.Basisregisters.DataDog.Tracing.AspNetCore
+{
+    public class TraceOptions
+    {
+        public string ServiceName { get; set; } = "web";
+
+        public Func<HttpRequest, TraceSource> TraceSource { get; set; }
+
+        public Func<string, bool> ShouldTracePath { get; set; }
+
+        public bool AnalyticsEnabled { get; set; }
+    }
+}
