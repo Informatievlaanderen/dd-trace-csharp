@@ -1,3 +1,10 @@
+# [4.1.0](https://github.com/informatievlaanderen/datadog-tracing/compare/v4.0.0...v4.1.0) (2019-12-15)
+
+
+### Features
+
+* upgrade to netcoreapp31 ([662ff82](https://github.com/informatievlaanderen/datadog-tracing/commit/662ff828122055e9575544309efc978b70101724))
+
 # [4.0.0](https://github.com/informatievlaanderen/datadog-tracing/compare/v3.9.0...v4.0.0) (2019-11-22)
 
 
