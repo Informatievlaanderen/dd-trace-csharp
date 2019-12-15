@@ -15,7 +15,7 @@ licenseUrl https://opensource.org/licenses/MIT
 description A C# Implementation of Data Dog Tracing.
 
 dependencies
-  framework: netcoreapp30
+  framework: netcoreapp31
     Be.Vlaanderen.Basisregisters.DataDog.Tracing CURRENTVERSION
 
     System.Data.Common >= LOCKEDVERSION
@@ -23,5 +23,5 @@ dependencies
     SqlStreamStore.MsSql >= LOCKEDVERSION
 
 files
-  bin\Release\netcoreapp3.0\Be.Vlaanderen.Basisregisters.DataDog.Tracing.SqlStreamStore.dll => lib\netcoreapp3.0
-  bin\Release\netcoreapp3.0\Be.Vlaanderen.Basisregisters.DataDog.Tracing.SqlStreamStore.pdb => lib\netcoreapp3.0
+  bin\Release\netcoreapp3.1\Be.Vlaanderen.Basisregisters.DataDog.Tracing.SqlStreamStore.dll => lib\netcoreapp3.1
+  bin\Release\netcoreapp3.1\Be.Vlaanderen.Basisregisters.DataDog.Tracing.SqlStreamStore.pdb => lib\netcoreapp3.1
