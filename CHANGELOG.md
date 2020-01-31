@@ -1,3 +1,10 @@
+# [4.2.0](https://github.com/informatievlaanderen/datadog-tracing/compare/v4.1.0...v4.2.0) (2020-01-31)
+
+
+### Features
+
+* replace featuretoggle by netcore version ([162944a](https://github.com/informatievlaanderen/datadog-tracing/commit/162944ac9eb65772f86a7f3cf45437da77ef6b3f))
+
 # [4.1.0](https://github.com/informatievlaanderen/datadog-tracing/compare/v4.0.0...v4.1.0) (2019-12-15)
 
 
