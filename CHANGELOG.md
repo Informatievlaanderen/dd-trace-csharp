@@ -1,3 +1,10 @@
+# [4.3.0](https://github.com/informatievlaanderen/datadog-tracing/compare/v4.2.0...v4.3.0) (2020-01-31)
+
+
+### Features
+
+* use more recent featuretoggle ([f13933d](https://github.com/informatievlaanderen/datadog-tracing/commit/f13933dc69644599c9abb45d22e091aedfc0e2d4))
+
 # [4.2.0](https://github.com/informatievlaanderen/datadog-tracing/compare/v4.1.0...v4.2.0) (2020-01-31)
 
 
