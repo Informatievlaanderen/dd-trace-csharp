@@ -1,6 +1,6 @@
 namespace Be.Vlaanderen.Basisregisters.DataDog.Tracing.Autofac
 {
-    using FeatureToggle;
+    using FeatureToggle.Core;
 
     public class ApiDebugDataDogToggle : IFeatureToggle
     {

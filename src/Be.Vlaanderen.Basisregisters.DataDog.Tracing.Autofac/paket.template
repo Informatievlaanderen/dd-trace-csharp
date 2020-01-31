@@ -20,7 +20,7 @@ dependencies
 
     Microsoft.Extensions.Configuration >= LOCKEDVERSION
     Autofac.Extensions.DependencyInjection >= LOCKEDVERSION
-    FeatureToggle >= LOCKEDVERSION
+    FeatureToggle.Core >= LOCKEDVERSION
 
 files
   bin\Release\netcoreapp3.1\Be.Vlaanderen.Basisregisters.DataDog.Tracing.Autofac.dll => lib\netcoreapp3.1
