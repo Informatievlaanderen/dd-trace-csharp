@@ -5,5 +5,14 @@
     <ProjectReference Include="..\Be.Vlaanderen.Basisregisters.DataDog.Tracing\Be.Vlaanderen.Basisregisters.DataDog.Tracing.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="FeatureToggle">
+      <HintPath>..\..\packages\FeatureToggle\lib\netcoreapp1.0\FeatureToggle.dll</HintPath>
+    </Reference>
+    <Reference Include="FeatureToggle.Common">
+      <HintPath>..\..\packages\FeatureToggle.Common\lib\netstandard1.4\FeatureToggle.Common.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
   <Import Project="..\..\.paket\Paket.Restore.targets" />
 </Project>

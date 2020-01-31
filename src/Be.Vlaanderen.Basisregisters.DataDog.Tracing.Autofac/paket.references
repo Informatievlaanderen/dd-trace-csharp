@@ -1,7 +1,6 @@
 Microsoft.Extensions.Configuration
 
 Autofac.Extensions.DependencyInjection
-FeatureToggle.Core
 
 SourceLink.Embed.AllSourceFiles
 SourceLink.Copy.PdbFiles
