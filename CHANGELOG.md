@@ -1,3 +1,10 @@
+## [4.4.1](https://github.com/informatievlaanderen/datadog-tracing/compare/v4.4.0...v4.4.1) (2020-03-02)
+
+
+### Bug Fixes
+
+* bump netcore to 3.1.2 ([802490d](https://github.com/informatievlaanderen/datadog-tracing/commit/802490d3ce7e2bc1fc38da07d442099905a9a92f))
+
 # [4.4.0](https://github.com/informatievlaanderen/datadog-tracing/compare/v4.3.0...v4.4.0) (2020-01-31)
 
 
