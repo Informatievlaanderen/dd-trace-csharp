@@ -118,7 +118,11 @@
       },
       {
         "path": "@semantic-release/exec",
-        "cmd": "BITBUCKET_BUILD_NUMBER=${nextRelease.version} ./build.sh Lib_Pack"
+        "cmd": "echo ${nextRelease.version} > semver"
+      },
+      {
+        "path": "@semantic-release/exec",
+        "cmd": "CI_BUILD_NUMBER=${nextRelease.version} ./build.sh PackageAll"
       },
       {
         "path": "@semantic-release/git",
@@ -138,30 +142,6 @@
             "path": "dist/**/*.nupkg"
           }
         ]
-      },
-      {
-        "path": "@semantic-release/exec",
-        "cmd": "node packages/Be.Vlaanderen.Basisregisters.Build.Pipeline/Content/ci-nuget.js dist/Be.Vlaanderen.Basisregisters.DataDog.Tracing/Be.Vlaanderen.Basisregisters.DataDog.Tracing.${nextRelease.version}.nupkg"
-      },
-      {
-        "path": "@semantic-release/exec",
-        "cmd": "node packages/Be.Vlaanderen.Basisregisters.Build.Pipeline/Content/ci-nuget.js dist/Be.Vlaanderen.Basisregisters.DataDog.Tracing/Be.Vlaanderen.Basisregisters.DataDog.Tracing.AspNetCore.${nextRelease.version}.nupkg"
-      },
-      {
-        "path": "@semantic-release/exec",
-        "cmd": "node packages/Be.Vlaanderen.Basisregisters.Build.Pipeline/Content/ci-nuget.js dist/Be.Vlaanderen.Basisregisters.DataDog.Tracing/Be.Vlaanderen.Basisregisters.DataDog.Tracing.Sql.${nextRelease.version}.nupkg"
-      },
-      {
-        "path": "@semantic-release/exec",
-        "cmd": "node packages/Be.Vlaanderen.Basisregisters.Build.Pipeline/Content/ci-nuget.js dist/Be.Vlaanderen.Basisregisters.DataDog.Tracing/Be.Vlaanderen.Basisregisters.DataDog.Tracing.SqlStreamStore.${nextRelease.version}.nupkg"
-      },
-      {
-        "path": "@semantic-release/exec",
-        "cmd": "node packages/Be.Vlaanderen.Basisregisters.Build.Pipeline/Content/ci-nuget.js dist/Be.Vlaanderen.Basisregisters.DataDog.Tracing/Be.Vlaanderen.Basisregisters.DataDog.Tracing.Autofac.${nextRelease.version}.nupkg"
-      },
-      {
-        "path": "@semantic-release/exec",
-        "cmd": "./packages/Be.Vlaanderen.Basisregisters.Build.Pipeline/Content/ci-confluence.sh"
       }
     ],
     "success": [
