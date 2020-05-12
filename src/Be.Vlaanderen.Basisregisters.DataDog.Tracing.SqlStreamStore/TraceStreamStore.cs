@@ -229,6 +229,59 @@ namespace Be.Vlaanderen.Basisregisters.DataDog.Tracing.SqlStreamStore
             }
         }
 
+        public async Task<ListStreamsPage> ListStreams(
+            int maxCount = 100,
+            string? continuationToken = null,
+            CancellationToken cancellationToken = new CancellationToken())
+        {
+            var span = _spanSource.Begin("stream-store." + nameof(ListStreams), ServiceName, "streams", TypeName);
+            try
+            {
+                return await _streamStore
+                    .ListStreams(
+                        maxCount,
+                        continuationToken,
+                        cancellationToken);
+            }
+            catch (Exception ex)
+            {
+                span?.SetError(ex);
+                throw;
+            }
+            finally
+            {
+                span?.Dispose();
+            }
+        }
+
+
+        public async Task<ListStreamsPage> ListStreams(
+            Pattern pattern,
+            int maxCount = 100,
+            string continuationToken = null,
+            CancellationToken cancellationToken = new CancellationToken())
+        {
+            var span = _spanSource.Begin("stream-store." + nameof(ListStreams), ServiceName, "streams", TypeName);
+            try
+            {
+                return await _streamStore
+                    .ListStreams(
+                        pattern,
+                        maxCount,
+                        continuationToken,
+                        cancellationToken);
+            }
+            catch (Exception ex)
+            {
+                span?.SetError(ex);
+                throw;
+            }
+            finally
+            {
+                span?.Dispose();
+            }
+        }
+
         public async Task<AppendResult> AppendToStream(
             StreamId streamId,
             int expectedVersion,

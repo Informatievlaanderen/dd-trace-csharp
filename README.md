@@ -1,4 +1,4 @@
-# DataDog Tracing for C#
+# DataDog Tracing for C# [![Build Status](https://github.com/Informatievlaanderen/datadog-tracing/workflows/CI/badge.svg)](https://github.com/Informatievlaanderen/datadog-tracing/actions)
 
 ## Packages
 
