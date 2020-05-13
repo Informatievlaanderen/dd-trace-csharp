@@ -1,3 +1,10 @@
+## [4.4.2](https://github.com/informatievlaanderen/datadog-tracing/compare/v4.4.1...v4.4.2) (2020-05-13)
+
+
+### Bug Fixes
+
+* move to GH-actions ([b08bcd6](https://github.com/informatievlaanderen/datadog-tracing/commit/b08bcd6cb58e2471858e3dce4846a50c309d1aba))
+
 ## [4.4.1](https://github.com/informatievlaanderen/datadog-tracing/compare/v4.4.0...v4.4.1) (2020-03-02)
 
 
