@@ -1,3 +1,10 @@
+## [4.4.3](https://github.com/informatievlaanderen/datadog-tracing/compare/v4.4.2...v4.4.3) (2020-05-18)
+
+
+### Bug Fixes
+
+* move to 3.1.4 ([4acf763](https://github.com/informatievlaanderen/datadog-tracing/commit/4acf763ac3eaa229d57ca4c3bb02c98905102d1b))
+
 ## [4.4.2](https://github.com/informatievlaanderen/datadog-tracing/compare/v4.4.1...v4.4.2) (2020-05-13)
 
 
