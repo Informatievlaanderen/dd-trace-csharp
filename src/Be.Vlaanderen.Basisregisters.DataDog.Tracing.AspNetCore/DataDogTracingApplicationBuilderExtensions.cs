@@ -37,6 +37,7 @@ namespace Be.Vlaanderen.Basisregisters.DataDog.Tracing.AspNetCore
                 var source = options.TraceSource(context.Request);
 
                 using (LogContext.PushProperty("TraceId", source.TraceId))
+                using (LogContext.PushProperty("DatadogTraceId", source.TraceId))
                 using (var span = source.Begin("aspnet.request", options.ServiceName, path, "web"))
                 using (new TraceContextScope(span))
                 {
