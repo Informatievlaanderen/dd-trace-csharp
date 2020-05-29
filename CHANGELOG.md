@@ -1,3 +1,10 @@
+# [4.5.0](https://github.com/informatievlaanderen/datadog-tracing/compare/v4.4.3...v4.5.0) (2020-05-29)
+
+
+### Features
+
+* add DatadogTraceId to logcontext GRAR-752 ([eb6c97a](https://github.com/informatievlaanderen/datadog-tracing/commit/eb6c97a1c9d02ae762ea71d510eb0da3230b7336))
+
 ## [4.4.3](https://github.com/informatievlaanderen/datadog-tracing/compare/v4.4.2...v4.4.3) (2020-05-18)
 
 
