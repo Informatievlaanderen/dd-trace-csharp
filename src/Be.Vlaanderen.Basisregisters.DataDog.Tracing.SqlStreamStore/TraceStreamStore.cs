@@ -124,6 +124,22 @@ namespace Be.Vlaanderen.Basisregisters.DataDog.Tracing.SqlStreamStore
                 "head",
                 () => _streamStore.ReadHeadPosition(cancellationToken));
 
+        public async Task<long> ReadStreamHeadPosition(
+            StreamId streamId,
+            CancellationToken cancellationToken = new CancellationToken())
+            => await Trace(
+                nameof(ReadStreamHeadPosition),
+                streamId,
+                () => _streamStore.ReadStreamHeadPosition(streamId, cancellationToken));
+
+        public async Task<int> ReadStreamHeadVersion(
+            StreamId streamId,
+            CancellationToken cancellationToken = new CancellationToken())
+            => await Trace(
+                nameof(ReadStreamHeadVersion),
+                streamId,
+                () => _streamStore.ReadStreamHeadVersion(streamId, cancellationToken));
+
         public async Task<StreamMetadataResult> GetStreamMetadata(
             string streamId,
             CancellationToken cancellationToken = new CancellationToken())
