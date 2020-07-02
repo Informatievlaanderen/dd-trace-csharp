@@ -88,17 +88,17 @@ namespace Be.Vlaanderen.Basisregisters.DataDog.Tracing.SqlStreamStore
             HasCaughtUp hasCaughtUp = null,
             bool prefetchJsonData = true,
             string name = null)
-        {
-            return _streamStore
-                .SubscribeToStream(
+            => Trace(
+                nameof(SubscribeToStream),
+                streamId,
+                () => _streamStore.SubscribeToStream(
                     streamId,
                     continueAfterVersion,
                     streamMessageReceived,
                     subscriptionDropped,
                     hasCaughtUp,
                     prefetchJsonData,
-                    name);
-        }
+                    name));
 
         public IAllStreamSubscription SubscribeToAll(
             long? continueAfterPosition,
@@ -107,16 +107,16 @@ namespace Be.Vlaanderen.Basisregisters.DataDog.Tracing.SqlStreamStore
             HasCaughtUp hasCaughtUp = null,
             bool prefetchJsonData = true,
             string name = null)
-        {
-            return _streamStore
-                .SubscribeToAll(
+            => Trace(
+                nameof(SubscribeToAll),
+                "all",
+                () => _streamStore.SubscribeToAll(
                     continueAfterPosition,
                     streamMessageReceived,
                     subscriptionDropped,
                     hasCaughtUp,
                     prefetchJsonData,
-                    name);
-        }
+                    name));
 
         public async Task<long> ReadHeadPosition(CancellationToken cancellationToken = new CancellationToken())
             => await Trace(
@@ -191,6 +191,9 @@ namespace Be.Vlaanderen.Basisregisters.DataDog.Tracing.SqlStreamStore
                 nameof(SetStreamMetadata),
                 streamId,
                 () => _streamStore.SetStreamMetadata(streamId, expectedStreamMetadataVersion, maxAge, maxCount, metadataJson, cancellationToken));
+
+        private T Trace<T>(string actionName, string resource, Func<T> action)
+            => Trace(actionName, resource, () => Task.Run(action)).GetAwaiter().GetResult();
 
         private async Task Trace(string actionName, string resource, Func<Task> action)
             => await Trace<object?>(actionName, resource, async () => { await action(); return null; });
