@@ -43,54 +43,20 @@ namespace Be.Vlaanderen.Basisregisters.DataDog.Tracing.SqlStreamStore
             int maxCount,
             bool prefetchJsonData = true,
             CancellationToken cancellationToken = new CancellationToken())
-        {
-            var span = _spanSource.Begin("stream-store." + nameof(ReadAllForwards), ServiceName, "all", TypeName);
-            try
-            {
-                return await _streamStore
-                    .ReadAllForwards(
-                        fromPositionInclusive,
-                        maxCount,
-                        prefetchJsonData,
-                        cancellationToken);
-            }
-            catch (Exception ex)
-            {
-                span?.SetError(ex);
-                throw;
-            }
-            finally
-            {
-                span?.Dispose();
-            }
-        }
+            => await Trace(
+                nameof(ReadAllForwards),
+                "all",
+                () => _streamStore.ReadAllForwards(fromPositionInclusive, maxCount, prefetchJsonData, cancellationToken));
 
         public async Task<ReadAllPage> ReadAllBackwards(
             long fromPositionInclusive,
             int maxCount,
             bool prefetchJsonData = true,
             CancellationToken cancellationToken = new CancellationToken())
-        {
-            var span = _spanSource.Begin("stream-store." + nameof(ReadAllBackwards), ServiceName, "all", TypeName);
-            try
-            {
-                return await _streamStore
-                    .ReadAllBackwards(
-                        fromPositionInclusive,
-                        maxCount,
-                        prefetchJsonData,
-                        cancellationToken);
-            }
-            catch (Exception ex)
-            {
-                span?.SetError(ex);
-                throw;
-            }
-            finally
-            {
-                span?.Dispose();
-            }
-        }
+            => await Trace(
+                nameof(ReadAllBackwards),
+                "all",
+                () => _streamStore.ReadAllBackwards(fromPositionInclusive, maxCount, prefetchJsonData, cancellationToken));
 
         public async Task<ReadStreamPage> ReadStreamForwards(
             StreamId streamId,
@@ -98,28 +64,10 @@ namespace Be.Vlaanderen.Basisregisters.DataDog.Tracing.SqlStreamStore
             int maxCount,
             bool prefetchJsonData = true,
             CancellationToken cancellationToken = new CancellationToken())
-        {
-            var span = _spanSource.Begin("stream-store." + nameof(ReadStreamForwards), ServiceName, streamId, TypeName);
-            try
-            {
-                return await _streamStore
-                    .ReadStreamForwards(
-                        streamId,
-                        fromVersionInclusive,
-                        maxCount,
-                        prefetchJsonData,
-                        cancellationToken);
-            }
-            catch (Exception ex)
-            {
-                span?.SetError(ex);
-                throw;
-            }
-            finally
-            {
-                span?.Dispose();
-            }
-        }
+            => await Trace(
+                nameof(ReadStreamForwards),
+                streamId,
+                () => _streamStore.ReadStreamForwards(streamId, fromVersionInclusive, maxCount, prefetchJsonData, cancellationToken));
 
         public async Task<ReadStreamPage> ReadStreamBackwards(
             StreamId streamId,
@@ -127,28 +75,10 @@ namespace Be.Vlaanderen.Basisregisters.DataDog.Tracing.SqlStreamStore
             int maxCount,
             bool prefetchJsonData = true,
             CancellationToken cancellationToken = new CancellationToken())
-        {
-            var span = _spanSource.Begin("stream-store." + nameof(ReadStreamBackwards), ServiceName, streamId, TypeName);
-            try
-            {
-                return await _streamStore
-                    .ReadStreamBackwards(
-                        streamId,
-                        fromVersionInclusive,
-                        maxCount,
-                        prefetchJsonData,
-                        cancellationToken);
-            }
-            catch (Exception ex)
-            {
-                span?.SetError(ex);
-                throw;
-            }
-            finally
-            {
-                span?.Dispose();
-            }
-        }
+            => await Trace(
+                nameof(ReadStreamBackwards),
+                streamId,
+                () => _streamStore.ReadStreamBackwards(streamId, fromVersionInclusive, maxCount, prefetchJsonData, cancellationToken));
 
         public IStreamSubscription SubscribeToStream(
             StreamId streamId,
@@ -189,70 +119,27 @@ namespace Be.Vlaanderen.Basisregisters.DataDog.Tracing.SqlStreamStore
         }
 
         public async Task<long> ReadHeadPosition(CancellationToken cancellationToken = new CancellationToken())
-        {
-            var span = _spanSource.Begin("stream-store." + nameof(ReadHeadPosition), ServiceName, "head", TypeName);
-            try
-            {
-                return await _streamStore.ReadHeadPosition(cancellationToken);
-            }
-            catch (Exception ex)
-            {
-                span?.SetError(ex);
-                throw;
-            }
-            finally
-            {
-                span?.Dispose();
-            }
-        }
+            => await Trace(
+                nameof(ReadHeadPosition),
+                "head",
+                () => _streamStore.ReadHeadPosition(cancellationToken));
 
         public async Task<StreamMetadataResult> GetStreamMetadata(
             string streamId,
             CancellationToken cancellationToken = new CancellationToken())
-        {
-            var span = _spanSource.Begin("stream-store." + nameof(GetStreamMetadata), ServiceName, streamId, TypeName);
-            try
-            {
-                return await _streamStore
-                    .GetStreamMetadata(
-                        streamId,
-                        cancellationToken);
-            }
-            catch (Exception ex)
-            {
-                span?.SetError(ex);
-                throw;
-            }
-            finally
-            {
-                span?.Dispose();
-            }
-        }
+            => await Trace(
+                nameof(GetStreamMetadata),
+                streamId,
+                () => _streamStore.GetStreamMetadata(streamId, cancellationToken));
 
         public async Task<ListStreamsPage> ListStreams(
             int maxCount = 100,
             string? continuationToken = null,
             CancellationToken cancellationToken = new CancellationToken())
-        {
-            var span = _spanSource.Begin("stream-store." + nameof(ListStreams), ServiceName, "streams", TypeName);
-            try
-            {
-                return await _streamStore
-                    .ListStreams(
-                        maxCount,
-                        continuationToken,
-                        cancellationToken);
-            }
-            catch (Exception ex)
-            {
-                span?.SetError(ex);
-                throw;
-            }
-            finally
-            {
-                span?.Dispose();
-            }
-        }
+            => await Trace(
+                nameof(ListStreams),
+                "streams",
+                () => _streamStore.ListStreams(maxCount, continuationToken, cancellationToken));
 
 
         public async Task<ListStreamsPage> ListStreams(
@@ -260,104 +147,38 @@ namespace Be.Vlaanderen.Basisregisters.DataDog.Tracing.SqlStreamStore
             int maxCount = 100,
             string continuationToken = null,
             CancellationToken cancellationToken = new CancellationToken())
-        {
-            var span = _spanSource.Begin("stream-store." + nameof(ListStreams), ServiceName, "streams", TypeName);
-            try
-            {
-                return await _streamStore
-                    .ListStreams(
-                        pattern,
-                        maxCount,
-                        continuationToken,
-                        cancellationToken);
-            }
-            catch (Exception ex)
-            {
-                span?.SetError(ex);
-                throw;
-            }
-            finally
-            {
-                span?.Dispose();
-            }
-        }
+			=> await Trace(
+                nameof(ListStreams),
+                "streams",
+                () => _streamStore.ListStreams(pattern, maxCount, continuationToken, cancellationToken));
 
         public async Task<AppendResult> AppendToStream(
             StreamId streamId,
             int expectedVersion,
             NewStreamMessage[] messages,
             CancellationToken cancellationToken = new CancellationToken())
-        {
-            var span = _spanSource.Begin("stream-store." + nameof(AppendToStream), ServiceName, streamId, TypeName);
-            try
-            {
-                return await _streamStore
-                    .AppendToStream(
-                        streamId,
-                        expectedVersion,
-                        messages,
-                        cancellationToken);
-            }
-            catch (Exception ex)
-            {
-                span?.SetError(ex);
-                throw;
-            }
-            finally
-            {
-                span?.Dispose();
-            }
-        }
+            => await Trace(
+                nameof(AppendToStream),
+                streamId,
+                () => _streamStore.AppendToStream(streamId, expectedVersion, messages, cancellationToken));
 
         public async Task DeleteStream(
             StreamId streamId,
             int expectedVersion = -2,
             CancellationToken cancellationToken = new CancellationToken())
-        {
-            var span = _spanSource.Begin("stream-store." + nameof(DeleteStream), ServiceName, streamId, TypeName);
-            try
-            {
-                await _streamStore
-                    .DeleteStream(
-                        streamId,
-                        expectedVersion,
-                        cancellationToken);
-            }
-            catch (Exception ex)
-            {
-                span?.SetError(ex);
-                throw;
-            }
-            finally
-            {
-                span?.Dispose();
-            }
-        }
+            => await Trace(
+                nameof(DeleteStream),
+                streamId,
+                () => _streamStore.DeleteStream(streamId, expectedVersion, cancellationToken));
 
         public async Task DeleteMessage(
             StreamId streamId,
             Guid messageId,
             CancellationToken cancellationToken = new CancellationToken())
-        {
-            var span = _spanSource.Begin("stream-store." + nameof(DeleteMessage), ServiceName, $"{streamId}/{messageId}", TypeName);
-            try
-            {
-                await _streamStore
-                    .DeleteMessage(
-                        streamId,
-                        messageId,
-                        cancellationToken);
-            }
-            catch (Exception ex)
-            {
-                span?.SetError(ex);
-                throw;
-            }
-            finally
-            {
-                span?.Dispose();
-            }
-        }
+            => await Trace(
+                nameof(DeleteMessage),
+                $"{streamId}/{messageId}",
+                () => _streamStore.DeleteMessage(streamId, messageId, cancellationToken));
 
         public async Task SetStreamMetadata(
             StreamId streamId,
@@ -366,18 +187,20 @@ namespace Be.Vlaanderen.Basisregisters.DataDog.Tracing.SqlStreamStore
             int? maxCount = null,
             string metadataJson = null,
             CancellationToken cancellationToken = new CancellationToken())
+            => await Trace(
+                nameof(SetStreamMetadata),
+                streamId,
+                () => _streamStore.SetStreamMetadata(streamId, expectedStreamMetadataVersion, maxAge, maxCount, metadataJson, cancellationToken));
+
+        private async Task Trace(string actionName, string resource, Func<Task> action)
+            => await Trace<object?>(actionName, resource, async () => { await action(); return null; });
+
+        private async Task<T> Trace<T>(string actionName, string resource, Func<Task<T>> action)
         {
-            var span = _spanSource.Begin("stream-store." + nameof(SetStreamMetadata), ServiceName, streamId, TypeName);
+            var span = _spanSource.Begin($"stream-store.{actionName}", ServiceName, resource, TypeName);
             try
             {
-                await _streamStore
-                    .SetStreamMetadata(
-                        streamId,
-                        expectedStreamMetadataVersion,
-                        maxAge,
-                        maxCount,
-                        metadataJson,
-                        cancellationToken);
+                return await action();
             }
             catch (Exception ex)
             {
