@@ -1,3 +1,13 @@
+## [4.5.2](https://github.com/informatievlaanderen/datadog-tracing/compare/v4.5.1...v4.5.2) (2020-07-02)
+
+
+### Bug Fixes
+
+* implement missing IStreamStore functions ([5af6e27](https://github.com/informatievlaanderen/datadog-tracing/commit/5af6e2798673710908dd8e86f04fd610ead583e1))
+* trace all streamstore calls ([170f583](https://github.com/informatievlaanderen/datadog-tracing/commit/170f583d5f8cfbfad8e916ab11bf90a56e43af84))
+* update build.fsx.lock ([46bd8c5](https://github.com/informatievlaanderen/datadog-tracing/commit/46bd8c511ac68b58d5d2b33ea79e0dc5547d6026))
+* update dependcies ([95f2466](https://github.com/informatievlaanderen/datadog-tracing/commit/95f24667907f1ec22a40ccb89bf53f96f2cc7626))
+
 ## [4.5.1](https://github.com/informatievlaanderen/datadog-tracing/compare/v4.5.0...v4.5.1) (2020-06-19)
 
 
