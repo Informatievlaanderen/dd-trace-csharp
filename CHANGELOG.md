@@ -1,3 +1,11 @@
+## [4.5.5](https://github.com/informatievlaanderen/datadog-tracing/compare/v4.5.4...v4.5.5) (2020-12-18)
+
+
+### Bug Fixes
+
+* correct set env gh actions ([9908e89](https://github.com/informatievlaanderen/datadog-tracing/commit/9908e8951f05320c97c39cd5bdcbdc81e4a15b18))
+* move to 5.0.1 ([3295067](https://github.com/informatievlaanderen/datadog-tracing/commit/32950673e88eba999159c157b1bc54db8ad41767))
+
 ## [4.5.4](https://github.com/informatievlaanderen/datadog-tracing/compare/v4.5.3...v4.5.4) (2020-09-21)
 
 
