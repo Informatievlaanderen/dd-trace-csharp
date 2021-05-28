@@ -1,3 +1,10 @@
+## [4.5.7](https://github.com/informatievlaanderen/datadog-tracing/compare/v4.5.6...v4.5.7) (2021-05-28)
+
+
+### Bug Fixes
+
+* move to 5.0.6 ([6e1b382](https://github.com/informatievlaanderen/datadog-tracing/commit/6e1b38222356dc7e0ce207edff1416286f15a40d))
+
 ## [4.5.6](https://github.com/informatievlaanderen/datadog-tracing/compare/v4.5.5...v4.5.6) (2021-02-02)
 
 
