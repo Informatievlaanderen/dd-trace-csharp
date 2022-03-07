@@ -1,6 +1,6 @@
 {
   "name": "datadog-tracing",
-  "version": "4.5.7",
+  "version": "4.6.0",
   "description": "A C# Implementation of Data Dog Tracing.",
   "author": "Basisregisters Vlaanderen",
   "license": "MIT",

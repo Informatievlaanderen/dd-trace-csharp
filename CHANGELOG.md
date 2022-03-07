@@ -1,3 +1,10 @@
+# [4.6.0](https://github.com/informatievlaanderen/datadog-tracing/compare/v4.5.7...v4.6.0) (2022-03-07)
+
+
+### Features
+
+* allow logging of X-Forwarded-For ([2d065ac](https://github.com/informatievlaanderen/datadog-tracing/commit/2d065acbbac05bd09a525a29ec088940c46f715e))
+
 ## [4.5.7](https://github.com/informatievlaanderen/datadog-tracing/compare/v4.5.6...v4.5.7) (2021-05-28)
 
 
