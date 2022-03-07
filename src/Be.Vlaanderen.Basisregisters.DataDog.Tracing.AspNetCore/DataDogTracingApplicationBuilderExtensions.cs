@@ -2,7 +2,6 @@ namespace Be.Vlaanderen.Basisregisters.DataDog.Tracing.AspNetCore
 {
     using System;
     using Microsoft.AspNetCore.Builder;
-    using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Http.Extensions;
     using Tracing;
     using Serilog.Context;
@@ -50,6 +49,9 @@ namespace Be.Vlaanderen.Basisregisters.DataDog.Tracing.AspNetCore
                     span.SetMeta("http.method", context.Request.Method);
                     span.SetMeta("http.request.headers.host", context.Request.Host.ToUriComponent());
                     span.SetMeta("http.url", context.Request.GetEncodedUrl());
+
+                    if (options.LogForwardedForEnabled && context.Request.Headers.TryGetValue("X-Forwarded-For", out var values))
+                        span.SetMeta("http.request.headers.x-forwarded-for", values.ToString());
 
                     span.SetMeta("http.path", path);
                     span.SetMeta("http.query", context.Request.QueryString.HasValue

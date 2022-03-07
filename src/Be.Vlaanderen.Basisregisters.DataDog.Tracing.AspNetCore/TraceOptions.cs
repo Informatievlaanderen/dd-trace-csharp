@@ -12,5 +12,6 @@ namespace Be.Vlaanderen.Basisregisters.DataDog.Tracing.AspNetCore
         public Func<string, bool> ShouldTracePath { get; set; }
 
         public bool AnalyticsEnabled { get; set; }
+        public bool LogForwardedForEnabled { get; set; }
     }
 }
