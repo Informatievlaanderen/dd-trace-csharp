@@ -15,7 +15,7 @@ licenseUrl https://opensource.org/licenses/MIT
 description A C# Implementation of Data Dog Tracing.
 
 dependencies
-  framework: net5.0
+  framework: net6.0
     Newtonsoft.Json >= LOCKEDVERSION
     Microsoft.Extensions.Logging.Abstractions >= LOCKEDVERSION
     System.Reactive >= LOCKEDVERSION
@@ -23,5 +23,5 @@ dependencies
     System.Threading.Tasks.Dataflow >= LOCKEDVERSION
 
 files
-  bin\Release\net5.0\Be.Vlaanderen.Basisregisters.DataDog.Tracing.dll => lib\net5.0
-  bin\Release\net5.0\Be.Vlaanderen.Basisregisters.DataDog.Tracing.pdb => lib\net5.0
+  bin\Release\net6.0\Be.Vlaanderen.Basisregisters.DataDog.Tracing.dll => lib\net6.0
+  bin\Release\net6.0\Be.Vlaanderen.Basisregisters.DataDog.Tracing.pdb => lib\net6.0
