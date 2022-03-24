@@ -1,3 +1,15 @@
+# [5.0.0](https://github.com/informatievlaanderen/datadog-tracing/compare/v4.6.0...v5.0.0) (2022-03-24)
+
+
+### Features
+
+* move to dotnet 6.0.3 ([c833211](https://github.com/informatievlaanderen/datadog-tracing/commit/c83321164072df9d2056f6341b0a3d861f72c22f))
+
+
+### BREAKING CHANGES
+
+* move to dotnet 6.0.3
+
 # [4.6.0](https://github.com/informatievlaanderen/datadog-tracing/compare/v4.5.7...v4.6.0) (2022-03-07)
 
 
