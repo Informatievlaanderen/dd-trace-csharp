@@ -29,6 +29,7 @@ Target.create "Lib_Build" (fun _ ->
   buildSource "Be.Vlaanderen.Basisregisters.DataDog.Tracing.Microsoft"
   buildSource "Be.Vlaanderen.Basisregisters.DataDog.Tracing.Sql"
   buildSource "Be.Vlaanderen.Basisregisters.DataDog.Tracing.SqlStreamStore"
+  buildSource "Be.Vlaanderen.Basisregisters.DataDog.Tracing.SqlStreamStore.Microsoft"
   buildTest "Be.Vlaanderen.Basisregisters.DataDog.Tracing.Tests"
   buildTest "Be.Vlaanderen.Basisregisters.DataDog.Tracing.Sql.Tests"
 )
@@ -47,6 +48,7 @@ Target.create "Lib_Publish" (fun _ ->
   publishSource "Be.Vlaanderen.Basisregisters.DataDog.Tracing.Microsoft"
   publishSource "Be.Vlaanderen.Basisregisters.DataDog.Tracing.Sql"
   publishSource "Be.Vlaanderen.Basisregisters.DataDog.Tracing.SqlStreamStore"
+  publishSource "Be.Vlaanderen.Basisregisters.DataDog.Tracing.SqlStreamStore.Microsoft"
 )
 
 Target.create "Lib_Pack" (fun _ -> pack "Be.Vlaanderen.Basisregisters.DataDog.Tracing")
