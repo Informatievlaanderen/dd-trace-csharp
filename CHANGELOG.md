@@ -1,3 +1,11 @@
+## [5.0.2](https://github.com/informatievlaanderen/datadog-tracing/compare/v5.0.1...v5.0.2) (2022-12-28)
+
+
+### Bug Fixes
+
+* add SqlStreamStore.Microsoft ([2342c81](https://github.com/informatievlaanderen/datadog-tracing/commit/2342c814bf29adece7e8f2bef5ce751cc6e63193))
+* update main.yml ([2c4b57c](https://github.com/informatievlaanderen/datadog-tracing/commit/2c4b57cf645df59d9060c53ae950c096b18d6747))
+
 ## [5.0.1](https://github.com/informatievlaanderen/datadog-tracing/compare/v5.0.0...v5.0.1) (2022-12-28)
 
 
