@@ -110,6 +110,7 @@ jobs:
         node packages/Be.Vlaanderen.Basisregisters.Build.Pipeline/Content/ci-nuget.js dist/$LIBNAME/$LIBNAME.Sql.$SEMVER.nupkg
         node packages/Be.Vlaanderen.Basisregisters.Build.Pipeline/Content/ci-nuget.js dist/$LIBNAME/$LIBNAME.SqlStreamStore.$SEMVER.nupkg
         node packages/Be.Vlaanderen.Basisregisters.Build.Pipeline/Content/ci-nuget.js dist/$LIBNAME/$LIBNAME.Autofac.$SEMVER.nupkg
+        node packages/Be.Vlaanderen.Basisregisters.Build.Pipeline/Content/ci-nuget.js dist/$LIBNAME/$LIBNAME.Microsoft.$SEMVER.nupkg
       env:
         LIBNAME: Be.Vlaanderen.Basisregisters.DataDog.Tracing
         SEMVER: ${{ env.RELEASE_VERSION }}
