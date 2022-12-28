@@ -1,3 +1,11 @@
+## [5.0.1](https://github.com/informatievlaanderen/datadog-tracing/compare/v5.0.0...v5.0.1) (2022-12-28)
+
+
+### Bug Fixes
+
+* add Microsoft package ([1a32eab](https://github.com/informatievlaanderen/datadog-tracing/commit/1a32eab81035a4a945927d8a2ae02eb7d4c1326a))
+* add Microsoft.Extensions.DependencyInjection ([ec56812](https://github.com/informatievlaanderen/datadog-tracing/commit/ec56812176115db0cc7c5347242b5852b868f01c))
+
 # [5.0.0](https://github.com/informatievlaanderen/datadog-tracing/compare/v4.6.0...v5.0.0) (2022-03-24)
 
 
