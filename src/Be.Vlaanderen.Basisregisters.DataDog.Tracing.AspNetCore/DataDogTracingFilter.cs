@@ -9,14 +9,16 @@ namespace Be.Vlaanderen.Basisregisters.DataDog.Tracing.AspNetCore
         {
             var span = TraceContext.Current;
             if (span == null)
+            {
                 return;
+            }
 
             var routeValues = context.ActionDescriptor.RouteValues;
             routeValues.TryGetValue("action", out var action);
             routeValues.TryGetValue("controller", out var controller);
 
-            action = action ?? "unknown";
-            controller = controller ?? "unknown";
+            action ??= "unknown";
+            controller ??= "unknown";
             span.Resource = $"{controller}.{action}";
 
             span.SetMeta("aspnet.controller", controller);

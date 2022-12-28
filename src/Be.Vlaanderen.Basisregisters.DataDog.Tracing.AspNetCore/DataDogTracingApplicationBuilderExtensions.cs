@@ -13,13 +13,19 @@ namespace Be.Vlaanderen.Basisregisters.DataDog.Tracing.AspNetCore
             TraceOptions options)
         {
             if (string.IsNullOrWhiteSpace(options.ServiceName))
+            {
                 options.ServiceName = "web";
+            }
 
             if (options.ShouldTracePath == null)
+            {
                 options.ShouldTracePath = x => true;
+            }
 
             if (options.TraceSource == null)
+            {
                 throw new ArgumentException("Missing TraceSource function.", nameof(options.TraceSource));
+            }
 
             app.Use(async (context, next) =>
             {
@@ -44,7 +50,9 @@ namespace Be.Vlaanderen.Basisregisters.DataDog.Tracing.AspNetCore
                     span.SetMeta("manual.keep", "true");
 
                     if (options.AnalyticsEnabled)
+                    {
                         span.SetMeta("_dd1.sr.eausr", "true");
+                    }
 
                     span.SetMeta("http.method", context.Request.Method);
                     span.SetMeta("http.request.headers.host", context.Request.Host.ToUriComponent());
@@ -54,9 +62,10 @@ namespace Be.Vlaanderen.Basisregisters.DataDog.Tracing.AspNetCore
                         span.SetMeta("http.request.headers.x-forwarded-for", values.ToString());
 
                     span.SetMeta("http.path", path);
-                    span.SetMeta("http.query", context.Request.QueryString.HasValue
+
+                    span.SetMeta("http.query", (context.Request.QueryString.HasValue
                         ? context.Request.QueryString.Value
-                        : string.Empty);
+                        : string.Empty)!);
 
                     try
                     {

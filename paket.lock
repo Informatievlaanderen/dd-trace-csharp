@@ -32,6 +32,8 @@ NUGET
       Fake.IO.FileSystem (>= 5.22)
       Fake.JavaScript.Npm (>= 5.22)
       Newtonsoft.Json (>= 13.0.1)
+    Be.Vlaanderen.Basisregisters.DependencyInjection (1.0.2)
+      Microsoft.Extensions.DependencyInjection.Abstractions (>= 6.0)
     BlackFox.VsWhere (1.1)
       FSharp.Core (>= 4.2.3)
       Microsoft.Win32.Registry (>= 4.7)
