@@ -1,3 +1,10 @@
+## [5.0.3](https://github.com/informatievlaanderen/datadog-tracing/compare/v5.0.2...v5.0.3) (2022-12-31)
+
+
+### Bug Fixes
+
+* bump dependencies ([a9abf05](https://github.com/informatievlaanderen/datadog-tracing/commit/a9abf0521a5132052b0bcfff493d08203c386e29))
+
 ## [5.0.2](https://github.com/informatievlaanderen/datadog-tracing/compare/v5.0.1...v5.0.2) (2022-12-28)
 
 
