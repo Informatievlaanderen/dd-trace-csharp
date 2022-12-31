@@ -12,7 +12,7 @@ namespace Be.Vlaanderen.Basisregisters.DataDog.Tracing.SqlStreamStore.Microsoft
 
         public void Load(IServiceCollection services)
         {
-            services.AddSingleton<TraceStreamStore>(_ => new TraceStreamStore(_.GetRequiredService<MsSqlStreamStore>(), _serviceName));
+            services.AddSingleton(_ => new TraceStreamStore(_.GetRequiredService<MsSqlStreamStore>(), _serviceName));
             services.AddSingleton<IStreamStore>(_ => new TraceStreamStore(_.GetRequiredService<MsSqlStreamStore>(), _serviceName));
         }
     }
