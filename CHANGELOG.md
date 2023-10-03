@@ -1,3 +1,10 @@
+# [5.1.0](https://github.com/informatievlaanderen/datadog-tracing/compare/v5.0.3...v5.1.0) (2023-10-03)
+
+
+### Features
+
+* add apikey tracing ([4348b98](https://github.com/informatievlaanderen/datadog-tracing/commit/4348b982de461d0cff78374b255923b77733abdf))
+
 ## [5.0.3](https://github.com/informatievlaanderen/datadog-tracing/compare/v5.0.2...v5.0.3) (2022-12-31)
 
 
