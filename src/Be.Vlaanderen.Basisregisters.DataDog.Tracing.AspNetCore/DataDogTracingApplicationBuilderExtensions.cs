@@ -1,6 +1,8 @@
 namespace Be.Vlaanderen.Basisregisters.DataDog.Tracing.AspNetCore
 {
     using System;
+    using System.Linq;
+    using System.Text;
     using Microsoft.AspNetCore.Builder;
     using Microsoft.AspNetCore.Http.Extensions;
     using Tracing;
@@ -8,6 +10,9 @@ namespace Be.Vlaanderen.Basisregisters.DataDog.Tracing.AspNetCore
 
     public static class DataDogTracingApplicationBuilderExtensions
     {
+        public const string ApiKeyHeaderName = "x-api-key";
+        public const string ApiTokenHeaderName = "x-api-token";
+
         public static IApplicationBuilder UseDataDogTracing(
             this IApplicationBuilder app,
             TraceOptions options)
@@ -60,6 +65,16 @@ namespace Be.Vlaanderen.Basisregisters.DataDog.Tracing.AspNetCore
 
                     if (options.LogForwardedForEnabled && context.Request.Headers.TryGetValue("X-Forwarded-For", out var values))
                         span.SetMeta("http.request.headers.x-forwarded-for", values.ToString());
+
+                    if (!context.Request.Headers.TryGetValue(ApiKeyHeaderName, out var headerApiKey) && !string.IsNullOrEmpty(headerApiKey))
+                        span.SetMeta("http.request.headers.apiKey", headerApiKey);
+
+                    context.Request.Headers.TryGetValue(ApiTokenHeaderName, out var potentialHeaderApiTokens);
+                    if (potentialHeaderApiTokens.Count > 0 && potentialHeaderApiTokens.Any(x => !string.IsNullOrWhiteSpace(x)))
+                    {
+                        var headerApiToken = potentialHeaderApiTokens.First(x => !string.IsNullOrEmpty(x));
+                        span.SetMeta("http.request.headers.apiToken", headerApiToken);
+                    }
 
                     span.SetMeta("http.path", path);
 
