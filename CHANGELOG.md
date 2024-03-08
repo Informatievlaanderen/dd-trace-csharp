@@ -1,3 +1,22 @@
+# [6.0.0](https://github.com/informatievlaanderen/datadog-tracing/compare/v5.1.0...v6.0.0) (2024-03-08)
+
+
+### Bug Fixes
+
+* props op test apps ([47adeae](https://github.com/informatievlaanderen/datadog-tracing/commit/47adeaefd0a6d8d4820e0331bbf661f30c2da1e7))
+
+
+### Features
+
+* move to dotnet 8.0.2 and remove .Microsoft projects ([e0649c1](https://github.com/informatievlaanderen/datadog-tracing/commit/e0649c183b3fe99429373c0fd125bf420875c833))
+
+
+### BREAKING CHANGES
+
+* move to dotnet 8.0.2 and remove
+Be.Vlaanderen.Basisregisters.DataDog.Tracing.Microsoft and
+Be.Vlaanderen.Basisregisters.DataDog.Tracing.SqlStreamStore.Microsoft
+
 # [5.1.0](https://github.com/informatievlaanderen/datadog-tracing/compare/v5.0.3...v5.1.0) (2023-10-03)
 
 
