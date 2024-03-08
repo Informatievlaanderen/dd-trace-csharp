@@ -55,7 +55,7 @@ jobs:
       shell: bash
 
   pack-tracing:
-    name: Pack
+    name: Pack Datadog Tracing
     uses: Informatievlaanderen/build-pipeline/.github/workflows/pack.yml@main
     needs: [ set-release-version ]
     if: ${{ (github.repository_owner == 'Informatievlaanderen') && (needs.set-release-version.outputs.version != 'none') }}
@@ -68,7 +68,7 @@ jobs:
     secrets: inherit
 
   pack-asp:
-    name: Pack
+    name: Pack Datadog AspNetCore
     uses: Informatievlaanderen/build-pipeline/.github/workflows/pack.yml@main
     needs: [ set-release-version ]
     if: ${{ (github.repository_owner == 'Informatievlaanderen') && (needs.set-release-version.outputs.version != 'none') }}
@@ -80,7 +80,7 @@ jobs:
     secrets: inherit
 
   pack-autofac:
-    name: Pack
+    name: Pack Datadog Tracing Autofac
     uses: Informatievlaanderen/build-pipeline/.github/workflows/pack.yml@main
     needs: [ set-release-version ]
     if: ${{ (github.repository_owner == 'Informatievlaanderen') && (needs.set-release-version.outputs.version != 'none') }}
@@ -92,7 +92,7 @@ jobs:
     secrets: inherit
 
   pack-sql:
-    name: Pack
+    name: Pack Datadog Tracing Sql
     uses: Informatievlaanderen/build-pipeline/.github/workflows/pack.yml@main
     needs: [ set-release-version ]
     if: ${{ (github.repository_owner == 'Informatievlaanderen') && (needs.set-release-version.outputs.version != 'none') }}
@@ -105,7 +105,7 @@ jobs:
     secrets: inherit
 
   pack-sqlstreamstore:
-    name: Pack
+    name: Pack Datadog Tracing SqlStreamStore
     uses: Informatievlaanderen/build-pipeline/.github/workflows/pack.yml@main
     needs: [ set-release-version ]
     if: ${{ (github.repository_owner == 'Informatievlaanderen') && (needs.set-release-version.outputs.version != 'none') }}
